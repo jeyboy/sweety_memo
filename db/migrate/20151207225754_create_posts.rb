@@ -3,6 +3,7 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :name, null: false
       t.integer :topic_id
+      t.boolean :disabled, default: false
       
       t.timestamps null: false
     end

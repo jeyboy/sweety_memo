@@ -1,0 +1,20 @@
+= nav_bar fixed: :top, brand: 'Sweety Memo', responsive: true do
+  = menu_group do
+    = menu_item 'Home', root_path
+    = menu_divider
+    - Category.all.each do |category|
+      - if category.topics.present?
+        = drop_down category.name do
+          = menu_item 'Index', category
+          - category.topics.each do |topic|
+            = menu_item topic.name, topic
+
+  = menu_group pull: :right do
+    - if current_user
+      = menu_item 'Log Out', '#'
+    - else
+      = drop_down 'Sign in' do
+        = form_for :user, url: session_path(:user), html: {class: 'navbar-form pull-right'} do |f|
+          %p= f.text_field :email, placeholder: 'Email'
+          %p= f.password_field :password, placeholder: 'Pass'
+          %p= f.submit 'Sign in'

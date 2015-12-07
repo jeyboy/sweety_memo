@@ -3,6 +3,7 @@ class CreateTopics < ActiveRecord::Migration
     create_table :topics do |t|
       t.string :name, null: false
       t.integer :category_id
+      t.boolean :disabled, default: false
 
       t.timestamps null: false
     end
