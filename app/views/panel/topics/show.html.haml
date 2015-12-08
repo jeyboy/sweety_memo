@@ -1,0 +1,11 @@
+.row
+  .col-md-12
+    %h1
+      Topic:
+      = @topic.name
+      = surround('(', ')') do
+        = link_to 'Edit', [:edit, :panel, @topic]
+
+- @topic.posts.each do |post|
+  = link_to post.name, [:panel, post]
+

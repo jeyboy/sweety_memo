@@ -1,0 +1,15 @@
+.row
+  = form_for(@topic, url: [:panel, @topic]) do |f|
+    = render 'shared/form_errors', object: @topic
+
+    .form-group
+      = f.label :category
+      = f.collection_select :category_id, Category.all, :id, :name
+      = link_to 'Create new category', [:new, :panel, :category]
+
+    .form-group
+      = f.label :name
+      = f.text_field :name
+
+    .actions
+      = f.submit

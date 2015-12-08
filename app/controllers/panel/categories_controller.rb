@@ -5,15 +5,13 @@ class Panel::CategoriesController < Panel::BaseController
     @categories = Category.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @category = Category.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @category = Category.new(category_params)
