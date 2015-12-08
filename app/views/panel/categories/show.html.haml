@@ -1,0 +1,10 @@
+.row
+  .col-md-12
+    %h1
+      = @category.name
+      = surround('(', ')') do
+        = link_to 'Edit', [:edit, :panel, @category]
+
+- @category.topics.each do |topic|
+  = link_to topic.name, [:panel, topic]
+

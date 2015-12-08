@@ -20,11 +20,9 @@ class Panel::CategoriesController < Panel::BaseController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
-        format.json { render :show, status: :created, location: @category }
+        format.html { redirect_to [:panel, @category], notice: 'Category was successfully created.' }
       else
-        format.html { render :new }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
+        format.html { render [:new, :panel, @category] }
       end
     end
   end
@@ -32,11 +30,9 @@ class Panel::CategoriesController < Panel::BaseController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to @category, notice: 'Category was successfully updated.' }
-        format.json { render :show, status: :ok, location: @category }
+        format.html { redirect_to [:panel, @category], notice: 'Category was successfully updated.' }
       else
-        format.html { render :edit }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
+        format.html { render [:edit, :panel, @category] }
       end
     end
   end
@@ -55,6 +51,6 @@ class Panel::CategoriesController < Panel::BaseController
     end
 
     def category_params
-      params[:category]
+      params.require(:category).permit(:name)
     end
 end
