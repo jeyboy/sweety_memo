@@ -13,6 +13,7 @@
     - if current_user
       = menu_item 'Log Out', '#'
     - else
+      = menu_item 'Panel', panel_path
       = drop_down 'Sign in' do
         = form_for :user, url: session_path(:user), html: {class: 'navbar-form pull-right'} do |f|
           %p= f.text_field :email, placeholder: 'Email'

@@ -6,10 +6,14 @@ Rails.application.routes.draw do
   resource :home, controller: 'home'
   resources :categories
 
-  namespace :backend do
+  namespace :panel do
     resource :landing, controller: 'panel/landing'
+    resources :categories
+    resources :topics
+    resources :posts
   end
 
+  get 'panel', to: 'panel/landing#show', as: :panel
   root 'home#show'
 
   # Example of regular route:
