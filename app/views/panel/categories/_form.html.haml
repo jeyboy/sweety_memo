@@ -1,6 +1,6 @@
 .row
   .col-xs-12
-    = form_for(@category, url: [:panel, @category], multypart: true) do |f|
+    = form_for(@category, url: [:panel, @category], html: {class: 'blockable', multypart: true}) do |f|
       = render 'shared/form_errors', object: @category
 
       .form-group
@@ -9,4 +9,4 @@
           = f.text_field :name
 
       .actions
-        = f.submit
+        = f.button 'Submit'

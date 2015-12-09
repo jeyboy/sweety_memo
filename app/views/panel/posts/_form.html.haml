@@ -1,6 +1,6 @@
 .row
   .col-xs-12
-    = form_for(@post, url: [:panel, @post]) do |f|
+    = form_for(@post, url: [:panel, @post], html: {class: 'blockable', multypart: true}) do |f|
       = render 'shared/form_errors', object: @post
 
       .form-group
@@ -18,7 +18,7 @@
       .form-group
         = f.label :body
         %fieldset
-          = f.text_area :body
+          = f.text_area :body, rows: 8
 
       .actions
-        = f.submit
+        = f.button 'Submit'

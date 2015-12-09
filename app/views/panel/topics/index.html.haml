@@ -1,7 +1,8 @@
 %h1 Listing Topics
 
 - if @topics.present?
-  = render partial: 'panel/topics/topic', collection: @topics
+  %table.table.table-striped
+    = render partial: 'panel/topics/topic', collection: @topics
 - else
   %h1.text-center No topics yet
 

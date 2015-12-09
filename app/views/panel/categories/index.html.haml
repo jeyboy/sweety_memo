@@ -1,7 +1,8 @@
 %h1 Listing Categories
 
 - if @categories.present?
-  = render partial: 'panel/categories/category', collection: @categories
+  %table.table.table-striped
+    = render partial: 'panel/categories/category', collection: @categories
 - else
   %h1.text-center No categories yet
 
