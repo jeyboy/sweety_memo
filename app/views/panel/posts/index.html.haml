@@ -4,4 +4,6 @@
   %table.table.table-striped
     = render partial: 'panel/posts/post', collection: @posts
 - else
-  %h1.text-center No posts yet
+  .text-center
+    %h1 No posts yet
+    = link_to 'Add post', new_panel_post_path, class: 'btn btn-success'

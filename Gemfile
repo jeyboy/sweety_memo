@@ -26,6 +26,7 @@ gem 'mini_magick'
 gem 'cloudinary'
 
 gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 
 gem 'rails_12factor', group: :production
 

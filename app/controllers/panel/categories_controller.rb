@@ -2,10 +2,12 @@ class Panel::CategoriesController < Panel::BaseController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   def index
-    @categories = Category.all
+    @categories = paginate(Category)
   end
 
-  def show; end
+  def show
+    @topics = paginate(@category.topics)
+  end
 
   def new
     @category = Category.new
@@ -38,7 +40,7 @@ class Panel::CategoriesController < Panel::BaseController
   def destroy
     @category.destroy
     respond_to do |format|
-      format.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }
+      format.html { redirect_to [:panel, :categories], notice: 'Category was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

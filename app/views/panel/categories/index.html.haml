@@ -3,6 +3,10 @@
 - if @categories.present?
   %table.table.table-striped
     = render partial: 'panel/categories/category', collection: @categories
+
+  = paginate @categories, theme: 'twitter-bootstrap-3'
 - else
-  %h1.text-center No categories yet
+  .text-center
+    %h1 No categories yet
+    = link_to 'Add category', [:new, :panel, :category], class: 'btn btn-success'
 

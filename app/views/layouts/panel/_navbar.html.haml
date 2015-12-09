@@ -1,16 +1,16 @@
-= nav_bar fixed: :top, brand: 'Sweety Panel', responsive: true do
+= nav_bar fixed: :top, brand: 'Sweety`s Panel', responsive: true do
   = menu_group do
     = menu_item 'Home', panel_path
     = menu_divider
     = drop_down 'Categories' do
-      = menu_item 'Index', panel_categories_path
-      = menu_item 'New', new_panel_category_path
+      = menu_item 'Index', panel_categories_path, class: 'bg-info'
+      = menu_item 'New', new_panel_category_path, class: 'bg-success'
     = drop_down 'Topics' do
-      = menu_item 'Index', panel_topics_path
-      = menu_item 'New', new_panel_topic_path
+      = menu_item 'Index', panel_topics_path, class: 'bg-info'
+      = menu_item 'New', new_panel_topic_path, class: 'bg-success'
     = drop_down 'Posts' do
-      = menu_item 'Index', panel_posts_path
-      = menu_item 'New', new_panel_post_path
+      = menu_item 'Index', panel_posts_path, class: 'bg-info'
+      = menu_item 'New', new_panel_post_path, class: 'bg-success'
 
   = menu_group pull: :right do
-    = menu_item 'Close', root_path
+    = menu_item 'Close', root_path, class: 'bg-danger'

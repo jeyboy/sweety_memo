@@ -2,7 +2,7 @@ window.show_spinner = ($elem) ->
   $elem.addClass('active')
 
   if ($elem.find('.spinner').length == 0)
-    $elem.append("<span class='spinner fa fa-spin fa-refresh' aria-hidden='true'></span>")
+    $elem.prepend("<span class='spinner'><i class='fa fa-spin fa-refresh'></i>&nbsp;</span>")
 
 window.hide_spinner =  ->
   $('.has-spinner').removeClass('active')

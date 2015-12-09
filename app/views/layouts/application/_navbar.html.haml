@@ -1,13 +1,13 @@
-= nav_bar fixed: :top, brand: 'Sweety Memo', responsive: true do
+= nav_bar fixed: :top, brand: 'Sweety`s Memo', responsive: true do
   = menu_group do
     = menu_item 'Home', root_path
     = menu_divider
     - Category.all.each do |category|
       - if category.topics.present?
         = drop_down category.name do
-          = menu_item 'Index', category
+          = menu_item 'Index', category_path(category)
           - category.topics.each do |topic|
-            = menu_item topic.name, topic
+            = menu_item topic.name, topic_path(topic)
 
   = menu_group pull: :right do
     - if current_user

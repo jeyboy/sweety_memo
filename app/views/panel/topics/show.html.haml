@@ -6,11 +6,14 @@
       = surround('(', ')') do
         = link_to 'Edit', [:edit, :panel, @topic]
 
-- if @topic.posts.present?
+- if @posts.present?
   %h4 Posts in topic:
   %table.table.table-striped
-    - @topic.posts.each do |post|
+    - @posts.each do |post|
       %tr
         %td= link_to post.name, [:panel, post]
+  = paginate @posts, theme: 'twitter-bootstrap-3'
 - else
-  %h1.text-center No posts yet
+  .text-center
+    %h1 No posts yet
+    = link_to 'Add post', new_panel_post_path(topic_id: @topic.id), class: 'btn btn-success'

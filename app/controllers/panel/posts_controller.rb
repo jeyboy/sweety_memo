@@ -2,7 +2,7 @@ class Panel::PostsController < Panel::BaseController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all
+    @posts = paginate(Post)
   end
 
   def show; end
@@ -38,7 +38,7 @@ class Panel::PostsController < Panel::BaseController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to [:panel, :posts], notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -4,6 +4,10 @@
  *= require_self
  */
 
-form fieldset input, form fieldset textarea, form fieldset select {
+form fieldset * {
     width: 100%;
+}
+
+table.table > tbody > tr > td{
+    vertical-align: middle;
 }

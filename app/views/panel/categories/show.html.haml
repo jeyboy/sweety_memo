@@ -6,12 +6,16 @@
       = surround('(', ')') do
         = link_to 'Edit', [:edit, :panel, @category]
 
-- if @category.topics.present?
+- if @topics.present?
   %h4 Topics in category:
   %table.table.table-striped
-    - @category.topics.each do |topic|
+    - @topics.each do |topic|
       %tr
         %td= link_to topic.name, [:panel, topic]
-        %td= link_to 'Add post', new_panel_post_path(topic_id: topic.id)
+        %td= link_to 'Add post', new_panel_post_path(topic_id: topic.id), class: 'btn btn-success'
+
+  = paginate @topics, theme: 'twitter-bootstrap-3'
 - else
-  %h1.text-center No topics yet
+  .text-center
+    %h1 No topics yet
+    = link_to 'Add topic', new_panel_topic_path(category_id: @category.id), class: 'btn btn-success'

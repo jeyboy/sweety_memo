@@ -1,6 +1,6 @@
 %tr
   %td
     %strong= link_to category.name, [:panel, category]
-  %td= link_to 'Add topic', new_panel_topic_path(category_id: category.id)
-  %td= link_to 'Edit', [:edit, :panel, category]
-  %td= link_to 'Delete', [:panel, category], method: :delete
+  %td= link_to 'Add topic', new_panel_topic_path(category_id: category.id), class: 'btn btn-success'
+  %td= link_to 'Edit', [:edit, :panel, category], class: 'btn btn-primary'
+  %td= link_to 'Delete', [:panel, category], method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure?'}
