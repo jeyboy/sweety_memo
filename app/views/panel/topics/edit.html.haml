@@ -1,7 +1,7 @@
 .row
-  .col-md-10.col-xs-9
-    %h1 Editing Topic
-  .col-md-2.col-xs-3
-    = link_to 'Show', [:panel, @topic]
+  .col-xs-12
+    %h1
+      Editing Topic
+      = link_to 'Show', [:panel, @topic], class: 'btn btn-info'
 
 = render 'panel/topics/form'

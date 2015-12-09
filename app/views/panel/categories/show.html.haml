@@ -3,8 +3,7 @@
     %h1
       Category:
       = @category.name
-      = surround('(', ')') do
-        = link_to 'Edit', [:edit, :panel, @category]
+      = link_to 'Edit', [:edit, :panel, @category], class: 'btn btn-primary'
 
 - if @topics.present?
   %h4 Topics in category:

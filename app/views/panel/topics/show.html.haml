@@ -3,8 +3,7 @@
     %h1
       Topic:
       = @topic.name
-      = surround('(', ')') do
-        = link_to 'Edit', [:edit, :panel, @topic]
+      = link_to 'Edit', [:edit, :panel, @topic], class: 'btn btn-primary'
 
 - if @posts.present?
   %h4 Posts in topic:

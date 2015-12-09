@@ -5,8 +5,7 @@
 
       .form-group
         = f.label :topic_id
-        = surround('(', ')') do
-          = link_to 'Create new Topic', [:new, :panel, :topic]
+        = link_to 'Add Topic', [:new, :panel, :topic], class: 'btn btn-success'
         %fieldset
           = f.collection_select :topic_id, Topic.all, :id, :name
 

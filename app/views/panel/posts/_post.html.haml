@@ -1,5 +1,5 @@
 %tr
   %td
     %strong= link_to post.name, [:panel, post]
-  %td= link_to 'Edit', [:edit, :panel, post]
-  %td= link_to 'Delete', [:panel, post], method: :delete
+  %td= link_to 'Edit', [:edit, :panel, post], class: 'btn btn-primary'
+  %td= link_to 'Delete', [:panel, post], method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure?'}

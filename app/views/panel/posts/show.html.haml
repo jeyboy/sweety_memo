@@ -2,8 +2,7 @@
   .col-md-12
     %h1
       = @post.name
-      = surround('(', ')') do
-        = link_to 'Edit', [:edit, :panel, @post]
+      = link_to 'Edit', [:edit, :panel, @post], class: 'btn btn-primary'
 
   .col-md-12
     = raw @post.body
