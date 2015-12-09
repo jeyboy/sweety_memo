@@ -3,4 +3,6 @@ class Category < ActiveRecord::Base
   has_many :posts, through: :topics
 
   has_one :image, as: :imageable
+
+  validates :name, uniqueness: true, presence: true
 end

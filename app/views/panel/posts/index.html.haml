@@ -1,0 +1,6 @@
+%h1 Listing Posts
+
+- if @posts.present?
+  = render partial: 'panel/posts/post', collection: @posts
+- else
+  %h1.text-center No posts yet

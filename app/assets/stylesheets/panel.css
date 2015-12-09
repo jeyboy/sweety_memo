@@ -3,3 +3,7 @@
  *= require_directory ./shared
  *= require_self
  */
+
+form fieldset input, form fieldset textarea, form fieldset select {
+    width: 100%;
+}

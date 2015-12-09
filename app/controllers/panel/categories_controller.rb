@@ -20,7 +20,7 @@ class Panel::CategoriesController < Panel::BaseController
       if @category.save
         format.html { redirect_to [:panel, @category], notice: 'Category was successfully created.' }
       else
-        format.html { render [:new, :panel, @category] }
+        format.html { render 'panel/categories/new' }
       end
     end
   end
@@ -30,7 +30,7 @@ class Panel::CategoriesController < Panel::BaseController
       if @category.update(category_params)
         format.html { redirect_to [:panel, @category], notice: 'Category was successfully updated.' }
       else
-        format.html { render [:edit, :panel, @category] }
+        format.html { render 'panel/categories/edit' }
       end
     end
   end

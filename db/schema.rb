@@ -35,15 +35,16 @@ ActiveRecord::Schema.define(version: 20151207230153) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "name",                       null: false
-    t.integer  "topic_id"
+    t.integer  "topic_id",                   null: false
     t.boolean  "disabled",   default: false
+    t.text     "body",                       null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
 
   create_table "topics", force: :cascade do |t|
     t.string   "name",                        null: false
-    t.integer  "category_id"
+    t.integer  "category_id",                 null: false
     t.boolean  "disabled",    default: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false

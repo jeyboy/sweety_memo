@@ -6,6 +6,8 @@
       = surround('(', ')') do
         = link_to 'Edit', [:edit, :panel, @topic]
 
-- @topic.posts.each do |post|
-  = link_to post.name, [:panel, post]
-
+- if @topic.posts.present?
+  - @topic.posts.each do |post|
+    = link_to post.name, [:panel, post]
+- else
+  %h1.text-center No posts yet

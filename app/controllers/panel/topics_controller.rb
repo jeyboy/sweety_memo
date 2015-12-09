@@ -18,11 +18,9 @@ class Panel::TopicsController < Panel::BaseController
 
     respond_to do |format|
       if @topic.save
-        format.html { redirect_to @topic, notice: 'Topic was successfully created.' }
-        format.json { render :show, status: :created, location: @topic }
+        format.html { redirect_to [:panel, @topic], notice: 'Topic was successfully created.' }
       else
-        format.html { render :new }
-        format.json { render json: @topic.errors, status: :unprocessable_entity }
+        format.html { render 'panel/topics/new' }
       end
     end
   end
@@ -30,11 +28,9 @@ class Panel::TopicsController < Panel::BaseController
   def update
     respond_to do |format|
       if @topic.update(topic_params)
-        format.html { redirect_to @topic, notice: 'Topic was successfully updated.' }
-        format.json { render :show, status: :ok, location: @topic }
+        format.html { redirect_to [:panel, @topic], notice: 'Topic was successfully updated.' }
       else
-        format.html { render :edit }
-        format.json { render json: @topic.errors, status: :unprocessable_entity }
+        format.html { render 'panel/topics/edit' }
       end
     end
   end
@@ -53,6 +49,6 @@ class Panel::TopicsController < Panel::BaseController
     end
 
     def topic_params
-      params[:topic]
+      params.require(:topic).permit(:name)
     end
 end
