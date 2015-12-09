@@ -7,7 +7,11 @@
         = link_to 'Edit', [:edit, :panel, @category]
 
 - if @category.topics.present?
-  - @category.topics.each do |topic|
-    = link_to topic.name, [:panel, topic]
+  %h4 Topics in category:
+  %table.table.table-striped
+    - @category.topics.each do |topic|
+      %tr
+        %td= link_to topic.name, [:panel, topic]
+        %td= link_to 'Add post', new_panel_post_path(topic_id: topic.id)
 - else
   %h1.text-center No topics yet

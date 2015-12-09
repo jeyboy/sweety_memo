@@ -8,7 +8,7 @@ class Panel::PostsController < Panel::BaseController
   def show; end
 
   def new
-    @post = Post.new
+    @post = Post.new(topic_id: params[:topic_id])
   end
 
   def edit; end

@@ -7,7 +7,10 @@
         = link_to 'Edit', [:edit, :panel, @topic]
 
 - if @topic.posts.present?
-  - @topic.posts.each do |post|
-    = link_to post.name, [:panel, post]
+  %h4 Posts in topic:
+  %table.table.table-striped
+    - @topic.posts.each do |post|
+      %tr
+        %td= link_to post.name, [:panel, post]
 - else
   %h1.text-center No posts yet

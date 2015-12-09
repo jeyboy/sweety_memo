@@ -8,7 +8,7 @@ class Panel::TopicsController < Panel::BaseController
   def show; end
 
   def new
-    @topic = Topic.new
+    @topic = Topic.new(category_id: params[:category_id])
   end
 
   def edit; end
