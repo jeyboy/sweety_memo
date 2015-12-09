@@ -16,8 +16,18 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'devise'
 gem 'haml-rails'
+
+# gem 'Bootstrap-Image-Gallery-rails'
+
+gem 'tinymce-rails'
+
 gem 'carrierwave'
+gem 'mini_magick'
+gem 'cloudinary'
+
 gem 'kaminari'
+
+gem 'rails_12factor', group: :production
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

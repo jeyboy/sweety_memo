@@ -1,0 +1,65 @@
+#toolbar_location: top
+#toolbar_align: left
+#statusbar_location: bottom
+#selector:
+#  - textarea
+toolbar:
+#  - fullscreen
+#  - forecolor backcolor
+#  - colorpicker
+#  - |
+#  - undo redo
+#  - bold italic
+#  - fontselect
+#  - fontsizeselect
+#  - |
+#  - alignleft
+#  - aligncenter
+#  - alignright
+#  - alignjustify
+#  - |
+#  - bullist
+#  - numlist
+#  - outdent
+#  - indent
+#  - |
+#  - link
+#  - image
+#  - media
+#  - |
+#  - code
+
+#  - anchor
+#  - image
+#  - tablecontrols
+#  - fullscreen
+#  - media
+
+plugins:
+   - advlist
+   - autolink
+   - lists
+   - link
+   - image
+   - charmap
+#   - print
+   - preview
+   - anchor
+   - searchreplace
+   - visualblocks
+   - code
+   - fullscreen
+   - insertdatetime
+   - media
+   - table
+   - contextmenu
+   - paste
+#   - textcolor
+#   - colorpicker
+#  - table
+#  - fullscreen
+#  - media
+#  - anchor
+   - image
+width: 100%
+theme_advanced_fonts: "Verdana=verdana;"

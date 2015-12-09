@@ -18,7 +18,8 @@
       .form-group
         = f.label :body
         %fieldset
-          = f.text_area :body, rows: 8
+          = f.text_area :body, rows: 8, class: 'tinymce'
+          = tinymce
 
       .actions
         = f.button 'Submit'
