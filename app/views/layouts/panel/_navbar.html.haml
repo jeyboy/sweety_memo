@@ -1,7 +1,5 @@
 = nav_bar fixed: :top, brand: 'Sweety`s Panel', responsive: true do
   = menu_group do
-    = menu_item 'Home', panel_path
-    = menu_divider
     = drop_down 'Categories' do
       = menu_item 'Index', panel_categories_path, class: 'bg-info'
       = menu_item 'New', new_panel_category_path, class: 'bg-success'
