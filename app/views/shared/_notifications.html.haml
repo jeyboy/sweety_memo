@@ -1,2 +1,9 @@
-.notice= notice
-.alert= alert
+.text-center
+  - if notice
+    .alert.alert-success
+      %a{href: '#', class: 'close', data: {dismiss: 'alert'}, 'aria-label' => 'close'} &times;
+      = notice
+  - if alert
+    .alert.alert-danger
+      %a{href: '#', class: 'close', data: {dismiss: 'alert'}, 'aria-label' => 'close'} &times;
+      = alert

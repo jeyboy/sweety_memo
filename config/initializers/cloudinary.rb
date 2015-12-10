@@ -1,5 +1,5 @@
 Cloudinary.config do |config|
-  config.cloud_name = 'duofold'
+  config.cloud_name = 'sweetys'
   config.api_key = '951696928569826'
   config.api_secret = 'HEaT5Fesm-hp_1ucPr8kJHYM0qU'
   config.cdn_subdomain = true

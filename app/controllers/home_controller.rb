@@ -1,3 +1,10 @@
 class HomeController < ApplicationController
-  def show; end
+  def show
+    if params[:search]
+
+      return
+    end
+
+    @cated_posts = Post.categorize_by_topics
+  end
 end
