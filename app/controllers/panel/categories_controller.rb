@@ -47,7 +47,7 @@ class Panel::CategoriesController < Panel::BaseController
 
   private
     def set_category
-      @category = Category.find(params[:id])
+      redirect_to :back unless (@category = Category.find_by(id: params[:id].to_i))
     end
 
     def category_params

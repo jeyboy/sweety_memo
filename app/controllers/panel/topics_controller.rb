@@ -47,7 +47,7 @@ class Panel::TopicsController < Panel::BaseController
 
   private
     def set_topic
-      @topic = Topic.find(params[:id])
+      redirect_to :back unless (@topic = Topic.find_by(id: params[:id].to_i))
     end
 
     def topic_params

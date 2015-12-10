@@ -2,12 +2,13 @@
   = menu_group do
     = menu_item 'Home', root_path
     = menu_divider
-    - Category.all.each do |category|
+    - Category.enabled.all.each do |category|
       - if category.topics.present?
         = drop_down category.name do
-          = menu_item 'Index', category_path(category)
-          - category.topics.each do |topic|
+          - category.topics.first(5).each do |topic|
             = menu_item topic.name, topic_path(topic)
+          - if category.topics.count > 5
+            = menu_item '...', category_path(category)
 
   = menu_group pull: :right do
     - if current_user

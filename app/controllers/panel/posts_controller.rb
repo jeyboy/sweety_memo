@@ -45,7 +45,7 @@ class Panel::PostsController < Panel::BaseController
 
   private
     def set_post
-      @post = Post.find(params[:id])
+      redirect_to :back unless (@post = Post.find_by(id: params[:id].to_i))
     end
 
     def post_params

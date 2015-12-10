@@ -1,6 +1,7 @@
-%p#notice= notice
+%h1 Posts in topic "#{@topic.name}"
 
+.col-xs-12
+  = render @posts
 
-= link_to 'Edit', edit_topic_path(@topic)
-\|
-= link_to 'Back', topics_path
+.col-xs-12
+  = paginate @posts, theme: 'twitter-bootstrap-3'
