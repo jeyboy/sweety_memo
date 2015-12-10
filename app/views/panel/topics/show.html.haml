@@ -10,6 +10,8 @@
 
 - if @posts.present?
   %h4 Posts in topic:
+  = paginate @posts, theme: 'twitter-bootstrap-3'
+
   %table.table.table-striped
     - @posts.each do |post|
       %tr

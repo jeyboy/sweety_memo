@@ -1,8 +1,12 @@
 %h1 Listing Posts
 
 - if @posts.present?
+  = paginate @posts, theme: 'twitter-bootstrap-3'
+
   %table.table.table-striped
     = render partial: 'panel/posts/post', collection: @posts
+
+  = paginate @posts, theme: 'twitter-bootstrap-3'
 - else
   .text-center
     %h1 No posts yet
