@@ -9,6 +9,6 @@ class PostsController < ApplicationController
 
   private
     def set_post
-      redirect_to :back unless (@post = Post.enabled.find_by(id: params[:id].to_i))
+      redirect_to(:back, alert: 'Object is not existed') unless (@post = Post.enabled.find_by(id: params[:id].to_i))
     end
 end

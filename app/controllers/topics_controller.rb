@@ -6,11 +6,11 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @posts = paginate(@topic.posts)
+    @posts = paginate(@topic.posts.enabled)
   end
 
   private
     def set_topic
-      redirect_to :back unless (@topic = Topic.enabled.find_by(id: params[:id].to_i))
+      redirect_to(:back, alert: 'Object is not existed') unless (@topic = Topic.enabled.find_by(id: params[:id].to_i))
     end
 end

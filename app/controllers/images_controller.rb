@@ -9,6 +9,6 @@ class ImagesController < ApplicationController
 
   private
     def set_image
-      redirect_to :back unless (@image = Image.find_by(id: params[:id].to_i))
+      redirect_to(:back, alert: 'Object is not existed') unless (@image = Image.find_by(id: params[:id].to_i))
     end
 end

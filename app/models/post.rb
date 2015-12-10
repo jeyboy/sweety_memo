@@ -33,7 +33,7 @@ class Post < ActiveRecord::Base
           select('topics.name topic_name, categories.name category_name, posts.*, ROW_NUMBER() OVER
          (PARTITION BY posts.topic_id ORDER BY RANDOM()) AS TN')
 
-      results = Post.from("(#{results.to_sql}) posts").
+      results = Post.enabled.from("(#{results.to_sql}) posts").
           where('posts.TN <= ?', count)
 
       results.to_a.each_with_object({}) do |post, ret|

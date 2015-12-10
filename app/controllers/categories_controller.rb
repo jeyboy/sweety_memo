@@ -6,11 +6,11 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @topics = paginate(@category.topics)
+    @topics = paginate(@category.topics.enabled)
   end
 
   private
     def set_category
-      redirect_to :back unless (@category = Category.enabled.find_by(id: params[:id].to_i))
+      redirect_to(:back, alert: 'Object is not existed') unless (@category = Category.enabled.find_by(id: params[:id].to_i))
     end
 end
