@@ -1,5 +1,8 @@
 %tr
   %td
+    - if category.image
+      = image_tag category.image.file.thumbnail.url, height: 80
+  %td
     %strong= link_to category.name, [:panel, category]
   %td= link_to 'Add topic', new_panel_topic_path(category_id: category.id), class: 'btn btn-success'
   %td= link_to 'Edit', [:edit, :panel, category], class: 'btn btn-primary'
