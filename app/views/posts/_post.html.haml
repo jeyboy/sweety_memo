@@ -1,3 +1,4 @@
-.col-xs-12.col-md-6.col-lg-4
-  %h1.text-center= post.name
+.col-xs-12.col-md-6.col-lg-4.text-center
+  %h1= post.name
+  -# there should be preview
   %img{src: (post.image.file.url rescue ImageUploader::default_url)}

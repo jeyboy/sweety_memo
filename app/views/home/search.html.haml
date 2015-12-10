@@ -1,0 +1,11 @@
+%h1.text-center.bg-success
+  Results for search by '#{@term.to_s}':
+
+- @results.each_pair do |section, objs|
+  - if objs.present?
+    .row
+      .col-xs-12
+        %hr
+        %h1.text-center.bg-info= section.to_s.humanize
+        %hr
+        = render objs

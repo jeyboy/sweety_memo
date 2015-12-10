@@ -9,7 +9,7 @@
             = menu_item '...', category_path(category)
 
   = menu_group pull: :right do
-    = form_for :search, url: '', html: {class: 'navbar-form', role: 'search'} do |f|
+    = form_for :search, url: search_path, html: {class: 'navbar-form', role: 'search'} do |f|
       .input-group
         = f.text_field :term, class: 'form-control', placeholder: 'Search'
         .input-group-btn
@@ -17,9 +17,9 @@
             %i.fa.fa-search
 
     - if current_user
-      = menu_item 'Log Out', '#'
-    - else
       = menu_item 'Panel', panel_path
+      = menu_item 'Log Out', destroy_user_session_path, method: :delete
+    - else
       = drop_down 'Sign in' do
         = form_for :user, url: session_path(:user), html: {class: 'navbar-form pull-right'} do |f|
           %p= f.text_field :email, placeholder: 'Email'
