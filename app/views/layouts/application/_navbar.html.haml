@@ -9,18 +9,19 @@
             = menu_item '...', category_path(category)
 
   = menu_group pull: :right do
-    = form_for :search, url: search_path, html: {class: 'navbar-form', role: 'search'} do |f|
-      .input-group
-        = f.text_field :term, class: 'form-control', placeholder: 'Search'
-        .input-group-btn
-          = f.button class: 'btn btn-default' do
-            %i.fa.fa-search
+    %li
+      = form_for :search, url: search_path, html: {class: 'navbar-form', role: 'search'} do |f|
+        .input-group
+          = f.text_field :term, class: 'form-control', placeholder: 'Search'
+          .input-group-btn
+            = f.button class: 'btn btn-default' do
+              %i.fa.fa-search
 
     - if current_user
       = menu_item 'Panel', panel_path
       = menu_item 'Log Out', destroy_user_session_path, method: :delete
     - else
-      = drop_down 'Sign in' do
+      = drop_down (image_tag('login.png', height: 25)) do
         = form_for :user, url: session_path(:user), html: {class: 'navbar-form pull-right'} do |f|
           %p= f.text_field :email, placeholder: 'Email'
           %p= f.password_field :password, placeholder: 'Pass'
