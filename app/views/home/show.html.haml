@@ -1,7 +1,7 @@
 - @cated_posts.each_pair do |category, topics|
-  %h1= category
+  %h1.text-center.bg-success= "Category #{category}:"
 
   - topics.each_pair do |topic, posts|
     .col-xs-12
-      %h3= topic
+      %h3.text-center.bg-info= "Topic #{topic}:"
       = render posts
