@@ -51,6 +51,6 @@ class Panel::TopicsController < Panel::BaseController
     end
 
     def topic_params
-      params.require(:topic).permit(:name, :category_id)
+      params.require(:topic).permit(:name, :category_id, :disabled)
     end
 end

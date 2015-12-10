@@ -5,12 +5,15 @@
 
       .form-group
         = f.label :category_id
-        = link_to 'Add category', [:new, :panel, :category], class: 'btn btn-success'
+        = link_to 'Create category', [:new, :panel, :category], class: 'btn btn-success'
         %fieldset
           = f.collection_select :category_id, Category.all, :id, :name
 
       .form-group
         = f.label :name
+        = surround '(', ')' do
+          = f.label :disabled
+          = f.check_box :disabled
         %fieldset
           = f.text_field :name
 

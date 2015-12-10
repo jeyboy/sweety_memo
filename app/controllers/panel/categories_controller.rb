@@ -51,6 +51,6 @@ class Panel::CategoriesController < Panel::BaseController
     end
 
     def category_params
-      params.require(:category).permit(:name)
+      params.require(:category).permit(:name, :disabled)
     end
 end

@@ -5,6 +5,9 @@
 
       .form-group
         = f.label :name
+        = surround '(', ')' do
+          = f.label :disabled
+          = f.check_box :disabled
         %fieldset
           = f.text_field :name
 

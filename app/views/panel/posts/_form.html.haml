@@ -5,12 +5,15 @@
 
       .form-group
         = f.label :topic_id
-        = link_to 'Add Topic', [:new, :panel, :topic], class: 'btn btn-success'
+        = link_to 'Create Topic', [:new, :panel, :topic], class: 'btn btn-success'
         %fieldset
           = f.collection_select :topic_id, Topic.all, :id, :name
 
       .form-group
         = f.label :name
+        = surround '(', ')' do
+          = f.label :disabled
+          = f.check_box :disabled
         %fieldset
           = f.text_field :name
 
