@@ -9,6 +9,13 @@
             = menu_item '...', category_path(category)
 
   = menu_group pull: :right do
+    = form_for :search, url: '', html: {class: 'navbar-form', role: 'search'} do |f|
+      .input-group
+        = f.text_field :term, class: 'form-control', placeholder: 'Search'
+        .input-group-btn
+          = f.button class: 'btn btn-default' do
+            %i.fa.fa-search
+
     - if current_user
       = menu_item 'Log Out', '#'
     - else
