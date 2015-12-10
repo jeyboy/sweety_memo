@@ -1,7 +1,18 @@
 /*
+    *= require_self
   = require twitter-bootstrap-static/bootstrap
 
   Use Font Awesome icons (default)
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
-  */
+*/
+
+.item {
+    word-break: break-all;
+    word-wrap: break-word;
+    border: 1px #e4e4e4 solid;
+    border-radius: 8px;
+    box-shadow: 0 0 6px #ccc;
+    margin: 15px 0;
+    padding: 10px;
+}

@@ -16,7 +16,11 @@ class Post < ActiveRecord::Base
       unescape_and_prepare && save
     end
 
-    body[preview_length]
+    if body.length > preview_length
+      "#{body[0..preview_length]} ..."
+    else
+      body
+    end
   end
 
   class << self
