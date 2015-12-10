@@ -11,5 +11,11 @@
         %fieldset
           = f.text_field :name
 
+      = f.fields_for :image, (f.object.image || f.object.build_image) do |img_f|
+        .form-group
+          = img_f.label :image
+          = img_f.file_field :file
+          = img_f.hidden_field :file_cache
+
       .actions
         = f.button 'Submit', class: 'btn btn-success'

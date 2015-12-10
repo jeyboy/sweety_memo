@@ -51,6 +51,6 @@ class Panel::CategoriesController < Panel::BaseController
     end
 
     def category_params
-      params.require(:category).permit(:name, :disabled)
+      params.require(:category).permit(:id, :name, :disabled, image_attributes: [:id, :file, :file_cache, :imageable_type, :imageable_id])
     end
 end

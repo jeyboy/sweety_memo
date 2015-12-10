@@ -1,7 +1,5 @@
 = nav_bar fixed: :top, brand: 'Sweety`s Memo', responsive: true do
   = menu_group do
-    = menu_item 'Home', root_path
-    = menu_divider
     - Category.enabled.all.each do |category|
       - if category.topics.present?
         = drop_down category.name do

@@ -1,6 +1,9 @@
 .row
-  .col-md-12
-    %h1
+  .col-md-12.text-center
+    - if @topic.image
+      .inlined
+        = image_tag @topic.image.file.thumbnail.url
+    %h1.inlined
       Topic:
       = @topic.name
       = link_to 'Edit', [:edit, :panel, @topic], class: 'btn btn-primary'

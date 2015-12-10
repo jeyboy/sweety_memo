@@ -49,6 +49,6 @@ class Panel::PostsController < Panel::BaseController
     end
 
     def post_params
-      params.require(:post).permit(:name, :body, :topic_id, :disabled)
+      params.require(:post).permit(:id, :name, :body, :topic_id, :disabled)
     end
 end

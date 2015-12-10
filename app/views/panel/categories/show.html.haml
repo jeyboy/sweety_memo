@@ -1,6 +1,9 @@
 .row
-  .col-md-12
-    %h1
+  .col-md-12.text-center.
+    - if @category.image
+      .inlined
+        = image_tag @category.image.file.thumbnail.url
+    %h1.inlined
       Category:
       = @category.name
       = link_to 'Edit', [:edit, :panel, @category], class: 'btn btn-primary'

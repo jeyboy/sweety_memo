@@ -51,6 +51,6 @@ class Panel::TopicsController < Panel::BaseController
     end
 
     def topic_params
-      params.require(:topic).permit(:name, :category_id, :disabled)
+      params.require(:topic).permit(:id, :name, :category_id, :disabled, image_attributes: [:id, :file, :file_cache, :imageable_type, :imageable_id])
     end
 end
