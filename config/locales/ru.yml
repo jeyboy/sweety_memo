@@ -1,4 +1,6 @@
 ru:
+  title: 'Конфеткин закуток :)'
+
   views:
     pagination:
       first: 'К началу'
@@ -39,7 +41,7 @@ ru:
     add_post: 'Добавить запись'
     add_post_linked: 'Добавить запись к теме'
     editing_post: 'Редактирование записи'
-    no_posts: 'Здесь покамисть нет постов'
+    no_posts: 'Здесь покамисть нет записей'
 
   panel:
     menu:
@@ -58,7 +60,7 @@ ru:
 
       name: 'Название'
       body: 'Содержимое'
-      disabled: 'Неактивное'
+      disabled: 'Деактивировать'
       image: 'Картинка'
 
       show: 'Перейти к просмотру'
@@ -71,6 +73,9 @@ ru:
 
   client:
     menu:
+      email: 'Емейл'
+      pass: 'Пароль'
       search: 'Поиск'
       panel: 'Панель'
+      sign_in: 'Авторизоваться'
       log_out: 'Выйти'

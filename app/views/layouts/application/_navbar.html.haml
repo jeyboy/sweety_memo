@@ -1,4 +1,4 @@
-= nav_bar fixed: :top, brand: 'Sweety`s Memo', responsive: true do
+= nav_bar fixed: :top, brand: t('title'), responsive: true do
   = menu_group do
     - Category.enabled.all.each do |category|
       - if category.topics.present?
@@ -12,17 +12,17 @@
     %li
       = form_for :search, url: search_path, html: {class: 'navbar-form', role: 'search'} do |f|
         .input-group
-          = f.text_field :term, class: 'form-control', placeholder: 'Search'
+          = f.text_field :term, class: 'form-control', placeholder: t('client.menu.search')
           .input-group-btn
             = f.button class: 'btn btn-default' do
               %i.fa.fa-search
 
     - if current_user
-      = menu_item 'Panel', panel_path
-      = menu_item 'Log Out', destroy_user_session_path, method: :delete
+      = menu_item t('client.menu.panel'), panel_path
+      = menu_item t('client.menu.log_out'), destroy_user_session_path, method: :delete
     - else
       = drop_down (image_tag('login.png', height: 25)) do
         = form_for :user, url: session_path(:user), html: {class: 'navbar-form pull-right'} do |f|
-          %p= f.text_field :email, placeholder: 'Email'
-          %p= f.password_field :password, placeholder: 'Pass'
-          %p= f.submit 'Sign in'
+          %p= f.text_field :email, placeholder: t('client.menu.email')
+          %p= f.password_field :password, placeholder: t('client.menu.pass')
+          %p= f.submit t('client.menu.sign_in')
