@@ -7,6 +7,11 @@
   =require twitter-bootstrap-static/fontawesome
 */
 
+.body {
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
 .item {
     word-break: break-all;
     word-wrap: break-word;
