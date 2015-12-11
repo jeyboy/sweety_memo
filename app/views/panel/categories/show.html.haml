@@ -4,22 +4,22 @@
       .inlined
         = image_tag @category.image.file.thumbnail.url
     %h1.inlined
-      Category:
+      "#{t('token.category')}:"
       = @category.name
       = link_to 'Edit', [:edit, :panel, @category], class: 'btn btn-primary'
 
 - if @topics.present?
-  %h4 Topics in category:
+  %h4= t('token.topics_in_category')
   = paginate @topics, theme: 'twitter-bootstrap-3'
 
   %table.table.table-striped
     - @topics.each do |topic|
       %tr
         %td= link_to topic.name, [:panel, topic]
-        %td= link_to 'Add post', new_panel_post_path(topic_id: topic.id), class: 'btn btn-success'
+        %td= link_to t('token.add_post'), new_panel_post_path(topic_id: topic.id), class: 'btn btn-success'
 
   = paginate @topics, theme: 'twitter-bootstrap-3'
 - else
   .text-center
     %h1 No topics yet
-    = link_to 'Add topic', new_panel_topic_path(category_id: @category.id), class: 'btn btn-success'
+    = link_to t('token.add_topic'), new_panel_topic_path(category_id: @category.id), class: 'btn btn-success'

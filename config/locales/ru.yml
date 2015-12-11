@@ -1,0 +1,56 @@
+ru:
+  token:
+    category: Категория
+    categories: Категории
+    new_category: Новая категория
+    add_category: Добавить категорию
+    category_list: Список категорий
+    topics_in_category: Список тем, принадлежащих к категории:
+    editing_category: Редактирование категории
+
+
+    topic: Тема
+    topics: Темы
+    topics_list: Список тем
+    add_topic: Добавить тему к категории
+
+
+
+    post: Запись
+    posts: Записи
+    posts_list: Список записей
+    add_post: Добавить запись к теме
+
+  panel:
+    menu:
+      index: Список
+      new: Создать новый
+      new2: Создать новую
+      close: Закрыть
+
+    view:
+      error:
+        msg:
+          err_sentence_first:
+            one: '1 ошибка отделяет'
+            few: '%{count} ошибки отделяют'
+            other: '%{count} ошибок отделяют'
+          err_sentence_last: ' ваше творение от создания'
+
+      name: Название
+      disabled: Неактивное
+      image: Картинка
+
+      show: Перейти к просмотру
+      edit: Редактировать
+      remove: Удалить
+
+      confirm: Вы уверены ?
+
+      proceed: Обработать
+
+  client:
+    menu:
+      search: Поиск
+      panel: Панель
+      log_out: Выйти

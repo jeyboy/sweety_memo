@@ -1,4 +1,4 @@
-%h1 Listing Categories
+%h1= t('token.category_list')
 
 - if @categories.present?
   = paginate @categories, theme: 'twitter-bootstrap-3'
@@ -10,5 +10,5 @@
 - else
   .text-center
     %h1 No categories yet
-    = link_to 'Add category', [:new, :panel, :category], class: 'btn btn-success'
+    = link_to t('token.add_category'), [:new, :panel, :category], class: 'btn btn-success'
 
