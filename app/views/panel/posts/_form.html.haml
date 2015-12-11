@@ -10,18 +10,18 @@
           = f.collection_select :topic_id, Topic.all, :id, :name
 
       .form-group
-        = f.label t('panel.view.name')
+        = f.label t('panel.views.name')
         = surround '(', ')' do
-          = f.label t('panel.view.disabled')
+          = f.label t('panel.views.disabled')
           = f.check_box :disabled
         %fieldset
           = f.text_field :name
 
       .form-group
-        = f.label t('panel.view.body')
+        = f.label t('panel.views.body')
         %fieldset
           = f.text_area :body, rows: 8, class: 'tinymce'
           = tinymce
 
       .actions
-        = f.button t('panel.view.proceed'), class: 'btn btn-success'
+        = f.button t('panel.views.proceed'), class: 'btn btn-success'

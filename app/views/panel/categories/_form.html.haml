@@ -4,16 +4,16 @@
       = render 'shared/form_errors', object: @category
 
       .form-group
-        = f.label t('panel.view.name')
+        = f.label t('panel.views.name')
         = surround '(', ')' do
-          = f.label t('panel.view.disabled')
+          = f.label t('panel.views.disabled')
           = f.check_box :disabled
         %fieldset
           = f.text_field :name
 
       = f.fields_for :image, (f.object.image || f.object.build_image) do |img_f|
         .form-group
-          = img_f.label t('panel.view.image')
+          = img_f.label t('panel.views.image')
 
           - if f.object.image
             = image_tag f.object.image.file.standard.url
@@ -22,4 +22,4 @@
           = img_f.hidden_field :file_cache
 
       .actions
-        = f.button t('panel.view.proceed'), class: 'btn btn-success'
+        = f.button t('panel.views.proceed'), class: 'btn btn-success'

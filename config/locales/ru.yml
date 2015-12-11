@@ -1,4 +1,12 @@
 ru:
+  views:
+    pagination:
+      first: 'К началу'
+      last: 'К концу'
+      previous: 'Предидущая'
+      next: 'Следующая'
+      truncate: '...'
+
   token:
     category: 'Категория'
     categories: 'Категории'
@@ -39,7 +47,7 @@ ru:
       new: 'Создать новую'
       close: 'Закрыть'
 
-    view:
+    views:
       error:
         msg:
           err_sentence_first:

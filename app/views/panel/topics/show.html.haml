@@ -6,7 +6,7 @@
     %h1.inlined
       = "#{t('token.topic')}:"
       = @topic.name
-      = link_to t('panel.view.edit'), [:edit, :panel, @topic], class: 'btn btn-primary'
+      = link_to t('panel.views.edit'), [:edit, :panel, @topic], class: 'btn btn-primary'
 
 - if @posts.present?
   %h4= "#{t('token.posts_in_topic')}:"

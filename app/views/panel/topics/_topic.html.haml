@@ -5,5 +5,5 @@
   %td
     %strong= link_to topic.name, [:panel, topic]
   %td= link_to t('token.add_post_linked'), new_panel_post_path(topic_id: topic.id), class: 'btn btn-success'
-  %td= link_to t('panel.view.edit'), [:edit, :panel, topic], class: 'btn btn-primary'
-  %td= link_to t('panel.view.remove'), [:panel, topic], method: :delete, class: 'btn btn-danger', data: {confirm: t('panel.view.confirm')}
+  %td= link_to t('panel.views.edit'), [:edit, :panel, topic], class: 'btn btn-primary'
+  %td= link_to t('panel.views.remove'), [:panel, topic], method: :delete, class: 'btn btn-danger', data: {confirm: t('panel.views.confirm')}

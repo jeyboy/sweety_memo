@@ -1,8 +1,8 @@
 - if object.errors.any?
   #error_explanation
     %h2
-      = t('panel.view.error.msg.err_sentence_first', count: object.errors.count)
-      = t('panel.view.error.msg.err_sentence_last')
+      = t('panel.views.error.msg.err_sentence_first', count: object.errors.count)
+      = t('panel.views.error.msg.err_sentence_last')
     %ul
       - object.errors.full_messages.each do |message|
         %li= message
