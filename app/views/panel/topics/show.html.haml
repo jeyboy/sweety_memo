@@ -4,12 +4,12 @@
       .inlined
         = image_tag @topic.image.file.thumbnail.url
     %h1.inlined
-      Topic:
+      = "#{t('token.topic')}:"
       = @topic.name
-      = link_to 'Edit', [:edit, :panel, @topic], class: 'btn btn-primary'
+      = link_to t('panel.view.edit'), [:edit, :panel, @topic], class: 'btn btn-primary'
 
 - if @posts.present?
-  %h4 Posts in topic:
+  %h4= "#{t('token.posts_in_topic')}:"
   = paginate @posts, theme: 'twitter-bootstrap-3'
 
   %table.table.table-striped
@@ -19,5 +19,5 @@
   = paginate @posts, theme: 'twitter-bootstrap-3'
 - else
   .text-center
-    %h1 No posts yet
-    = link_to 'Add post', new_panel_post_path(topic_id: @topic.id), class: 'btn btn-success'
+    %h1= t('token.no_posts')
+    = link_to t('token.add_post_linked'), new_panel_post_path(topic_id: @topic.id), class: 'btn btn-success'

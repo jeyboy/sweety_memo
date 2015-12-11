@@ -4,24 +4,24 @@
       = render 'shared/form_errors', object: @post
 
       .form-group
-        = f.label :topic_id
-        = link_to 'Create Topic', [:new, :panel, :topic], class: 'btn btn-success'
+        = f.label t('token.topic')
+        = link_to t('token.create_topic'), [:new, :panel, :topic], class: 'btn btn-success'
         %fieldset
           = f.collection_select :topic_id, Topic.all, :id, :name
 
       .form-group
-        = f.label :name
+        = f.label t('panel.view.name')
         = surround '(', ')' do
-          = f.label :disabled
+          = f.label t('panel.view.disabled')
           = f.check_box :disabled
         %fieldset
           = f.text_field :name
 
       .form-group
-        = f.label :body
+        = f.label t('panel.view.body')
         %fieldset
           = f.text_area :body, rows: 8, class: 'tinymce'
           = tinymce
 
       .actions
-        = f.button 'Submit', class: 'btn btn-success'
+        = f.button t('panel.view.proceed'), class: 'btn btn-success'

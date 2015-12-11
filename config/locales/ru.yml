@@ -1,32 +1,43 @@
 ru:
   token:
-    category: Категория
-    categories: Категории
-    new_category: Новая категория
-    add_category: Добавить категорию
-    category_list: Список категорий
-    topics_in_category: Список тем, принадлежащих к категории:
-    editing_category: Редактирование категории
+    category: 'Категория'
+    categories: 'Категории'
+    new_category: 'Новая категория'
+    add_category: 'Добавить категорию'
+    create_category: 'Создать новую категорию'
+    category_list: 'Список категорий'
+    topics_in_category: 'Список тем, принадлежащих к категории:'
+    editing_category: 'Редактирование категории'
+    no_categories: 'Здесь покамисть нет категорий'
 
 
-    topic: Тема
-    topics: Темы
-    topics_list: Список тем
-    add_topic: Добавить тему к категории
+    topic: 'Тема'
+    topics: 'Темы'
+    topics_list: 'Список тем'
+    new_topic: 'Новая тема'
+    create_topic: 'Создать новую тему'
+    add_topic: 'Добавить тему'
+    add_topic_linked: 'Добавить тему к категории'
+    no_topics: 'Здесь покамисть нет тем'
+    posts_in_topic: 'Список тем, принадлежащих к категории:'
+    editing_topic: 'Редактирование темы'
+    no_topics: 'Здесь покамисть нет тем'
 
 
-
-    post: Запись
-    posts: Записи
-    posts_list: Список записей
-    add_post: Добавить запись к теме
+    post: 'Запись'
+    posts: 'Записи'
+    posts_list: 'Список записей'
+    new_post: 'Новая запись'
+    add_post: 'Добавить запись'
+    add_post_linked: 'Добавить запись к теме'
+    editing_post: 'Редактирование записи'
+    no_posts: 'Здесь покамисть нет постов'
 
   panel:
     menu:
-      index: Список
-      new: Создать новый
-      new2: Создать новую
-      close: Закрыть
+      index: 'Список'
+      new: 'Создать новую'
+      close: 'Закрыть'
 
     view:
       error:
@@ -37,20 +48,21 @@ ru:
             other: '%{count} ошибок отделяют'
           err_sentence_last: ' ваше творение от создания'
 
-      name: Название
-      disabled: Неактивное
-      image: Картинка
+      name: 'Название'
+      body: 'Содержимое'
+      disabled: 'Неактивное'
+      image: 'Картинка'
 
-      show: Перейти к просмотру
-      edit: Редактировать
-      remove: Удалить
+      show: 'Перейти к просмотру'
+      edit: 'Редактировать'
+      remove: 'Удалить'
 
-      confirm: Вы уверены ?
+      confirm: 'Вы уверены ?'
 
-      proceed: Обработать
+      proceed: 'Обработать'
 
   client:
     menu:
-      search: Поиск
-      panel: Панель
-      log_out: Выйти
+      search: 'Поиск'
+      panel: 'Панель'
+      log_out: 'Выйти'

@@ -1,7 +1,7 @@
 .row
   .col-xs-12
     %h1
-      Editing Topic
-      = link_to 'Show', [:panel, @topic], class: 'btn btn-info'
+      = t('token.editing_topic')
+      = link_to t('panel.view.show'), [:panel, @topic], class: 'btn btn-info'
 
 = render 'panel/topics/form'
