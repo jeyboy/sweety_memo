@@ -37,7 +37,9 @@
       = menu_item t('client.menu.log_out'), destroy_user_session_path, method: :delete
     - else
       %li.dropdown.visible-md.visible-lg.visible-sm
-        = drop_down_link(image_tag('login.png', height: 20))
+        %button{class: "dropdown-toggle navbar-btn", "data-toggle" => "dropdown"}
+          =name_and_caret(image_tag('login.png', height: 20))
+        -#= drop_down_link(image_tag('login.png', height: 20))
         = drop_down_sublist do
           = form_for :user, url: session_path(:user), html: {class: 'navbar-form pull-right'} do |f|
             %p= f.text_field :email, placeholder: t('client.menu.email')
