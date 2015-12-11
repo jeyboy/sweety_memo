@@ -1,5 +1,20 @@
 = nav_bar fixed: :top, brand: t('title'), responsive: true do
   = menu_group do
+    - unless current_user
+      %li.visible-xs
+        = form_for :user, url: session_path(:user), html: {class: 'navbar-form'} do |f|
+          = f.text_field :email, placeholder: t('client.menu.email')
+          = f.password_field :password, placeholder: t('client.menu.pass')
+          = f.submit t('client.menu.sign_in')
+
+      %li.visible-xs
+        = form_for :search, url: search_path, html: {class: 'navbar-form', role: 'search'} do |f|
+          .input-group
+            = f.text_field :term, class: 'form-control', placeholder: t('client.menu.search')
+            .input-group-btn
+              = f.button class: 'btn btn-default' do
+                %i.fa.fa-search
+
     - Category.enabled.all.each do |category|
       - if category.topics.present?
         = drop_down category.name do
@@ -9,7 +24,7 @@
             = menu_item '...', category_path(category)
 
   = menu_group pull: :right do
-    %li
+    %li.visible-md.visible-lg.visible-sm
       = form_for :search, url: search_path, html: {class: 'navbar-form', role: 'search'} do |f|
         .input-group
           = f.text_field :term, class: 'form-control', placeholder: t('client.menu.search')
@@ -21,8 +36,10 @@
       = menu_item t('client.menu.panel'), panel_path
       = menu_item t('client.menu.log_out'), destroy_user_session_path, method: :delete
     - else
-      = drop_down (image_tag('login.png', height: 25)) do
-        = form_for :user, url: session_path(:user), html: {class: 'navbar-form pull-right'} do |f|
-          %p= f.text_field :email, placeholder: t('client.menu.email')
-          %p= f.password_field :password, placeholder: t('client.menu.pass')
-          %p= f.submit t('client.menu.sign_in')
+      %li.dropdown.visible-md.visible-lg.visible-sm
+        = drop_down_link(image_tag('login.png', height: 20))
+        = drop_down_sublist do
+          = form_for :user, url: session_path(:user), html: {class: 'navbar-form pull-right'} do |f|
+            %p= f.text_field :email, placeholder: t('client.menu.email')
+            %p= f.password_field :password, placeholder: t('client.menu.pass')
+            %p= f.submit t('client.menu.sign_in')
