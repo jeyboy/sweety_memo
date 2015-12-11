@@ -44,9 +44,9 @@ class Post < ActiveRecord::Base
 
     def search(term)
       {
-        categories: Category.where('name LIKE ?', "%#{term}%"),
-        topics: Topic.where('name LIKE ?', "%#{term}%"),
-        posts: Post.where('name LIKE :term OR body LIKE :term', term: "%#{term}%")
+        I18n.t('token.categories') =>  Category.where('name LIKE ?', "%#{term}%"),
+        I18n.t('token.topics') => Topic.where('name LIKE ?', "%#{term}%"),
+        I18n.t('token.posts') => Post.where('name LIKE :term OR body LIKE :term', term: "%#{term}%")
       }
     end
   end

@@ -79,3 +79,6 @@ ru:
       panel: 'Панель'
       sign_in: 'Авторизоваться'
       log_out: 'Выйти'
+
+    views:
+      search_results: "Результаты поиска для '%{predicate}'"

@@ -1,4 +1,4 @@
-%h1 Posts in topic "#{@topic.name}"
+%h1= "#{t('token.posts_in_topic')} #{@topic.name}"
 
 .col-xs-12
   = render @posts

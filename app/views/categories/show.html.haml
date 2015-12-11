@@ -1,4 +1,4 @@
-%h1 Topics in category "#{@category.name}"
+%h1= "#{t('token.topics_in_category')} #{@category.name}"
 
 .col-xs-12
   = render @topics

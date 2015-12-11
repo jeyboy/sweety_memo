@@ -1,7 +1,7 @@
 - @cated_posts.each_pair do |category, topics|
-  %h1.text-center.bg-success= "Category #{category}:"
+  %h1.text-center.bg-success= "#{t('token.category')} #{category}:"
 
   - topics.each_pair do |topic, posts|
     .col-xs-12
-      %h3.text-center.bg-info= "Topic #{topic}:"
+      %h3.text-center.bg-info= "#{t('token.topic')} #{topic}:"
       = render posts

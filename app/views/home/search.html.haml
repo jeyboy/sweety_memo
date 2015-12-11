@@ -1,5 +1,5 @@
 %h1.text-center.bg-success
-  Results for search by '#{@term.to_s}':
+  = t('client.views.search_results', predicate: @term.to_s)
 
 - @results.each_pair do |section, objs|
   - if objs.present?
