@@ -1,7 +1,9 @@
-- @cated_posts.each_pair do |category, topics|
-  %h1.text-center.bg-success= "#{t('token.category')} #{category}:"
+-#- @cated_posts.each_pair do |category, topics|
+-#  %h1.text-center.bg-success= "#{t('token.category')} #{category}:"
+-#
+-#  - topics.each_pair do |topic, posts|
+-#    .col-xs-12
+-#      %h3.text-center.bg-info= "#{t('token.topic')} #{topic}:"
+-#      = render posts
 
-  - topics.each_pair do |topic, posts|
-    .col-xs-12
-      %h3.text-center.bg-info= "#{t('token.topic')} #{topic}:"
-      = render posts
+= render Category.enabled

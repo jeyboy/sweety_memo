@@ -1,6 +1,6 @@
 window.recalc_padding = ->
   h = $('.navbar-fixed-top').outerHeight();
-  $(".body").css({"padding-top": h + "px"});
+  $(".body_container").css({"padding-top": h + "px"});
 
 jQuery ->
   $("a[rel~=popover], .has-popover").popover()
