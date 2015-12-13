@@ -23,6 +23,9 @@
           - if category.topics.count > 5
             = menu_item '...', category_path(category)
 
+    - if GalleryItem.enabled.present?
+      = menu_item t('client.menu.gallery'), gallery_items_path
+
   = menu_group pull: :right do
     %li.visible-md.visible-lg.visible-sm
       = form_for :search, url: search_path, html: {class: 'navbar-form', role: 'search'} do |f|

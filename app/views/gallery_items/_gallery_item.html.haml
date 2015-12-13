@@ -1,0 +1,4 @@
+.col-xs-12.col-md-6.col-lg-4.text-center
+  .item{title: gallery_item.name, data: {toggle: 'popover', trigger: 'focus,hover', content: gallery_item.description}}
+    %h1= gallery_item.name
+    %img{src: (gallery_item.image.file.standard.url rescue ImageUploader::default_url)}

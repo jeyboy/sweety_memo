@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  resources :gallery_items
-  resources :images
   devise_for :users
-  resources :posts
-  resources :topics
+
   resource :home, controller: 'home'
-  resources :categories
+  resources :gallery_items, only: [:index]
+  resources :posts, only: [:index, :show]
+  resources :topics, only: [:index, :show]
+  resources :categories, only: [:index, :show]
 
   authenticated(:user) do
     namespace :panel do

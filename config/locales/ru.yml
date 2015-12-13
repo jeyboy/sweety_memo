@@ -86,6 +86,7 @@ ru:
 
   client:
     menu:
+      gallery: 'Моя галерея'
       email: 'Емейл'
       pass: 'Пароль'
       search: 'Поиск'
