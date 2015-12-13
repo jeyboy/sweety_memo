@@ -43,10 +43,21 @@ ru:
     editing_post: 'Редактирование записи'
     no_posts: 'Здесь покамисть нет записей'
 
+
+    gallery_item: 'Элемент галереи'
+    gallery_items: 'Элементы галереи'
+    new_gallery_item: 'Новый элемент галереи'
+    add_gallery_item: 'Добавить элемент галереи'
+    editing_gallery_item: 'Редактирование элемента галереи'
+    create_gallery_item: 'Создать новый елемент галереи'
+    genre_item_list: 'Список элементов галереи'
+    no_gallery_items: 'Здесь покамисть нет элементов галереи'
+
   panel:
     menu:
       index: 'Список'
       new: 'Создать новую'
+      new2: 'Создать новый'
       close: 'Закрыть'
 
     views:
@@ -60,8 +71,10 @@ ru:
 
       name: 'Название'
       body: 'Содержимое'
+      description: 'Описание'
       disabled: 'Деактивировать'
       image: 'Картинка'
+      no_image: 'Не имеет картинки'
 
       show: 'Перейти к просмотру'
       edit: 'Редактировать'

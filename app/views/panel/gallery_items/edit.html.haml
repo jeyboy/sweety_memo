@@ -1,0 +1,8 @@
+.row
+  .col-xs-12
+    %h1
+      = t('token.editing_gallery_item')
+      = link_to t('panel.views.show'), [:panel, @gallery_item], class: 'btn btn-info'
+
+= render 'panel/gallery_items/form'
+

@@ -4,7 +4,7 @@
       .inlined
         = image_tag @category.image.file.thumbnail.url
     %h1.inlined
-      "#{t('token.category')}:"
+      = "#{t('token.category')}:"
       = @category.name
       = link_to 'Edit', [:edit, :panel, @category], class: 'btn btn-primary'
 

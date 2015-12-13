@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :gallery_items
   resources :images
   devise_for :users
   resources :posts
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
       resources :categories
       resources :topics
       resources :posts
+      resources :gallery_items
     end
 
     get 'panel', to: 'panel/landing#show', as: :panel

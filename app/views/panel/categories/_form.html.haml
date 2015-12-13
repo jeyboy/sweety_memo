@@ -1,25 +1,11 @@
 .row
   .col-xs-12
     = form_for(@category, url: [:panel, @category], html: {class: 'blockable', multypart: true}) do |f|
-      = render 'shared/form_errors', object: @category
+      = render 'shared/form_errors', object: f.object
 
-      .form-group
-        = f.label t('panel.views.name')
-        = surround '(', ')' do
-          = f.label t('panel.views.disabled')
-          = f.check_box :disabled
-        %fieldset
-          = f.text_field :name
+      = render 'panel/shared/form_name_and_disabled_part', f: f
 
-      = f.fields_for :image, (f.object.image || f.object.build_image) do |img_f|
-        .form-group
-          = img_f.label t('panel.views.image')
-
-          - if f.object.image
-            = image_tag f.object.image.file.standard.url
-
-          = img_f.file_field :file
-          = img_f.hidden_field :file_cache
+      = render 'panel/shared/form_file_part', f: f
 
       .actions
         = f.button t('panel.views.proceed'), class: 'btn btn-success'

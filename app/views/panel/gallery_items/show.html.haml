@@ -1,0 +1,14 @@
+.row
+  .col-md-12
+    %h1
+      = @gallery_item.name
+      = link_to t('panel.views.edit'), [:edit, :panel, @gallery_item], class: 'btn btn-primary'
+
+  .col-md-12
+    - if @gallery_item.image
+      = image_tag @gallery_item.image.file.thumbnail.url
+    - else
+      %h3= t('panel.views.no_image')
+
+  .col-md-12
+    = raw @gallery_item.description

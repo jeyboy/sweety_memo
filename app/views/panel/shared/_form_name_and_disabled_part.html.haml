@@ -1,0 +1,7 @@
+.form-group
+  = f.label t('panel.views.name')
+  = surround '(', ')' do
+    = f.label t('panel.views.disabled')
+    = f.check_box :disabled
+  %fieldset
+    = f.text_field :name
