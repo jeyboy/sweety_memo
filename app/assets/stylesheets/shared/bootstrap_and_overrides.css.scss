@@ -49,7 +49,7 @@
       img {
         max-width: 100%;
         width: auto;
-        height: $height - 20;
+        max-height: $height - 20;
       }
     }
 }
