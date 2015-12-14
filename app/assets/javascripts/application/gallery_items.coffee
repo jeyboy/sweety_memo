@@ -5,6 +5,11 @@ $ ->
     html: true,
   });
 
+  if ('ontouchstart' in window)
+    $('[data-toggle="popover"]').popover({
+      'trigger': 'manual'
+    });
+
   $('body').on 'click', '.img_clc', ->
     url = $(@).data('url')
     $parent = $(@).closest('.item')
