@@ -17,6 +17,7 @@ $ ->
         modal_window.template(
           false,
           header,
-          "<div class='text-center'><img src='#{url}'/></div><div>#{description}</div>"
+          "<div class='text-center'><img style='height: auto; max-width: 100%;' src='#{url}'/></div><div>#{description}</div>",
+          modal_window.close_button()
         )
       )
