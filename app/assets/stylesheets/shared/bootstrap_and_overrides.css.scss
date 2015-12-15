@@ -7,6 +7,11 @@
   =require twitter-bootstrap-static/fontawesome
 */
 
+.inlined {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .align-middle {
     position: relative !important;
     top: 50%;

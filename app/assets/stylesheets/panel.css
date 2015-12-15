@@ -11,8 +11,3 @@ form fieldset * {
 table.table > tbody > tr > td{
     vertical-align: middle;
 }
-
-.inlined {
-    display: inline-block;
-    vertical-align: middle;
-}
