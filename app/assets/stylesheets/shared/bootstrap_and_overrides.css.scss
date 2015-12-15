@@ -27,7 +27,6 @@
 }
 
 .item {
-    //word-break: break-all;
     word-wrap: break-word;
     border: 1px #e4e4e4 solid;
     border-radius: 8px;
@@ -40,16 +39,33 @@
       height: auto;
     }
 
-    $height: 200px;
+    $height: 300px;
 
     &.fixed_height {
+      word-wrap: normal;
+
       padding: 0 15px;
       height: $height;
+      overflow: hidden;
+
+      h1 {
+        max-height: 80px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        &.bordered {
+          border-bottom: 1px solid gray;
+        }
+      }
 
       img {
         max-width: 100%;
         width: auto;
-        max-height: $height - 20;
+        max-height: $height - 100;
+
+        position: relative !important;
+        top: calc(50% - 40px);
+        transform: translateY(-50%);
       }
     }
 }

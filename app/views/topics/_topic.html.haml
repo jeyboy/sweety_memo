@@ -2,4 +2,4 @@
   .item
     = link_to topic_path(topic) do
       %h1= topic.name
-      %img{src: (topic.image.file.url rescue ImageUploader::default_url)}
+      %img.img-rounded{src: (topic.image.file.url rescue ImageUploader::default_url)}

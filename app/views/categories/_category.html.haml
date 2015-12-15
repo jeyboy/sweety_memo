@@ -1,8 +1,6 @@
 -#.col-xs-12.col-md-6.col-lg-4.text-center
-.col-xs-12.col-md-6.col-lg-4.text-center
+.col-xs-12.col-sm-6.col-md-4.col-lg-3.text-center
   .item.fixed_height
     = link_to category_path(category) do
-      .col-xs-6.align-middle
-        %h1= category.name
-      .col-xs-6.align-middle
-        %img{src: (category.image.file.url rescue ImageUploader::default_url)}
+      %h1.bordered= category.name
+      %img.img-rounded{src: (category.image.file.url rescue ImageUploader::default_url)}
