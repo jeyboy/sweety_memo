@@ -8,13 +8,13 @@
 */
 
 .align-middle {
-  position: relative !important;
-  top: 50%;
-  transform: translateY(-50%);
+    position: relative !important;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .navbar-btn {
-  padding: 4px;
+    padding: 4px;
 }
 
 .body {
@@ -23,10 +23,17 @@
 }
 
 .padded {
-  padding-left: 8px;
+    padding-left: 8px;
 }
 
 .item {
+    a { color: black; }
+
+    h2 {
+      text-overflow: ellipsis;
+      border-bottom: 1px solid gray;
+    }
+
     word-wrap: break-word;
     border: 1px #e4e4e4 solid;
     border-radius: 8px;
@@ -40,31 +47,30 @@
     }
 
     $height: 300px;
+    $padd: 20px;
+    $head: 80px;
 
     &.fixed_height {
       word-wrap: normal;
 
       padding: 0 15px;
       height: $height;
+      max-height: $height;
+      min-height: $height;
       overflow: hidden;
 
-      h1 {
-        max-height: 80px;
+      h2 {
+        max-height: $head;
         overflow: hidden;
-        text-overflow: ellipsis;
-
-        &.bordered {
-          border-bottom: 1px solid gray;
-        }
       }
 
       img {
         max-width: 100%;
         width: auto;
-        max-height: $height - 100;
+        max-height: $height - $head - $padd;
 
         position: relative !important;
-        top: calc(50% - 40px);
+        top: calc(50% - 40px); // double $padd
         transform: translateY(-50%);
       }
     }
