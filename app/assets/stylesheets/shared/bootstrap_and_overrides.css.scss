@@ -70,11 +70,11 @@
       img {
         max-width: 100%;
         width: auto;
+        height: $height - $head - $padd;
         max-height: $height - $head - $padd;
-
-        position: relative !important;
-        top: calc(50% - 40px); // double $padd
-        transform: translateY(-50%);
+        //position: relative !important;
+        //top: calc(50% - 40px); // double $padd
+        //transform: translateY(-50%);
       }
     }
 }
