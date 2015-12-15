@@ -1,0 +1,15 @@
+- obj_name = object.class.name.underscore
+
+- if related.present?
+  %h4= t('token.rel_title', obj_name)
+  = paginate related, theme: 'twitter-bootstrap-3'
+
+  %table.table.table-striped
+    - rel_name = related.first.class.name.underscore
+    = render "panel/#{rel_name.pluralize}/#{rel_name}_row", collection: related
+
+  = paginate related, theme: 'twitter-bootstrap-3'
+- else
+  .text-center
+    %h1= t('token.no_list', scope: obj_name)
+    = link_to t('token.add_linked', scope: obj_name), new_panel_topic_path(category_id: @category.id), class: 'btn btn-success'

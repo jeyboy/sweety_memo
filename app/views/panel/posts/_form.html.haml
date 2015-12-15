@@ -1,7 +1,7 @@
 .row
   .col-xs-12
     = form_for(@post, url: [:panel, @post], html: {class: 'blockable', multypart: true}) do |f|
-      = render 'shared/form_errors', object: f.object
+      = render 'panel/shared/form_errors', object: f.object
 
       .form-group
         = f.label t('token.topic')

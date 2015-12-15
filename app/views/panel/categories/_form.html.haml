@@ -1,7 +1,7 @@
 .row
   .col-xs-12
     = form_for(@category, url: [:panel, @category], html: {class: 'blockable', multypart: true}) do |f|
-      = render 'shared/form_errors', object: f.object
+      = render 'panel/shared/form_errors', object: f.object
 
       = render 'panel/shared/form_name_and_disabled_part', f: f
 

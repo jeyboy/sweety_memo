@@ -1,0 +1,9 @@
+.row
+  .col-md-12.text-center
+    - if object.respond_to?(:image) && object.image
+      .inlined
+        = image_tag object.image.file.thumbnail.url
+    %h1.inlined
+      = "#{t('token.name', scope: object.class.name.underscore)}:"
+      = object.name
+      = link_to 'Edit', [:edit, :panel, object], class: 'btn btn-primary'

@@ -1,0 +1,3 @@
+%tr
+  %td= link_to topic.name, [:panel, topic]
+  %td= link_to t('token.add_linked', scope: 'post'), new_panel_post_path(topic_id: topic.id), class: 'btn btn-success'
