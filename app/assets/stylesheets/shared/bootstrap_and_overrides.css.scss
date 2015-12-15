@@ -70,8 +70,8 @@
       img {
         max-width: 100%;
         width: auto;
-        height: $height - $head - $padd;
-        max-height: $height - $head - $padd;
+        height: $height - $head;
+        max-height: $height - $head;
         //position: relative !important;
         //top: calc(50% - 40px); // double $padd
         //transform: translateY(-50%);
