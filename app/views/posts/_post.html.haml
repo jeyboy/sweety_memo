@@ -1,5 +1,6 @@
 .col-xs-12.col-md-6.col-lg-4
-  .item.fixed_height
-    %h2.text-center= link_to post.name, post_path(post)
 
-    = raw post.preview
+  = link_to post_path(post) do
+    .item.fixed_height
+      %h2.text-center= post.name
+      = raw post.preview
