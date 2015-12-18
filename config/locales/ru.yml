@@ -61,6 +61,7 @@ ru:
     videos_list: 'Список видео'
     editing_video: 'Редактирование записи с видео'
     no_videos: 'Здесь покамисть нет видео элементов'
+    add_video_linked: 'Добавить видео к теме'
 
   panel:
     menu:
