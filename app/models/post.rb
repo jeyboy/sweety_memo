@@ -16,15 +16,44 @@ class Post < ActiveRecord::Base
 
   scope :enabled, -> { where(disabled: false) }
 
-  def preview
-    unless preview_length
-      unescape_and_prepare && save
+  def content
+    case content_type
+      when TEXT_CONTENT
+        body
+      else
+        "<div style='text-align: center;'><iframe src='//www.youtube.com/embed/#{body}?rel=0' width='480' height='400' allowfullscreen></iframe></div>"
+        # -#"http://www.youtube.com/embed/?listType=user_uploads&list=YOURCHANNELNAME"
+        # -#&showinfo=0 — используя данную переменную вы сможете убрать название и рейтинг из плеера.
+        # -#&egm=0 — сможете активировать расширенное всплывающее меню.
+        # -#&autoplay=0 — создадите запрет на автоматическое проигрывание ролика.
+        # -#&loop=0 — запрет на повтор ролика после просмотра, если ролик в плеере один.
+        # -#&border=0 — убирается рамка плеера. Цветовая палитра задается параметром color1, дополнительный цвет — параметром color2. Значения можно задать RGB в шестнадцатеричном формате.
+        # -#&fmt=6 — задаёт хорошее качество видео.
+        # -#&fmt=18 — задаёт качество еще лучше.
+        # -#&fmt=22 — задаёт наилучшее качество видео. Но для работы этого параметра видео должно быть в high definition (HD).
+        # -#&disablekb=1 — отключение управления клавиатурой компьютера.
+        # -#&fs=0 — делает невозможным полноэкранный просмотр.
+        # -#&start=331 — запускает видео с 331 секунды. Задайте своё число секунд.
+        # -#&showsearch=0 — окна поиска не отображается при уменьшенном виде плеера.
+        # -#&start=10 — запуск видео через 10 секунд после загрузки. Задавайте своё кол-во секунд.
     end
+  end
 
-    if body.length > preview_length
-      "#{body[0..preview_length]} ..."
-    else
-      body
+  def preview
+    case content_type
+      when TEXT_CONTENT
+        unless preview_length
+          unescape_and_prepare && save
+        end
+
+        if body.length > preview_length
+          "#{body[0..preview_length]} ..."
+        else
+          body
+        end
+
+      else
+        content
     end
   end
 

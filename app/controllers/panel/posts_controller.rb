@@ -64,7 +64,7 @@ class Panel::PostsController < Panel::BaseController
     end
 
     def get_path_part
-      case @post.content_type
+      case (@post.content_type rescue params[:content_type].to_i)
         when POST_VIDEO_CONTENT
           'videos'
         else
