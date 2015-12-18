@@ -53,11 +53,21 @@ ru:
     genre_item_list: 'Список элементов галереи'
     no_gallery_items: 'Здесь покамисть нет элементов галереи'
 
+
+    video: 'Видео элемент'
+    videos: 'Видео элементы'
+    add_video: 'Добавить видео'
+    new_video: 'Новое видео'
+    videos_list: 'Список видео'
+    editing_video: 'Редактирование записи с видео'
+    no_videos: 'Здесь покамисть нет видео элементов'
+
   panel:
     menu:
       index: 'Список'
       new: 'Создать новую'
       new2: 'Создать новый'
+      new3: 'Создать новое'
       close: 'Закрыть'
 
     views:
@@ -71,6 +81,7 @@ ru:
 
       name: 'Название'
       body: 'Содержимое'
+      youtube_link: 'Ссылка на Youtube'
       description: 'Описание'
       disabled: 'Деактивировать'
       image: 'Картинка'

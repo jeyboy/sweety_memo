@@ -12,7 +12,8 @@ Rails.application.routes.draw do
       resource :landing, controller: 'panel/landing'
       resources :categories
       resources :topics
-      resources :posts
+      resources :posts, content_type: POST_TEXT_CONTENT
+      resources :videos, controller: 'posts', content_type: POST_VIDEO_CONTENT
       resources :gallery_items
     end
 

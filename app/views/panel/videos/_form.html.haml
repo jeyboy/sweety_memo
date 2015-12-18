@@ -13,10 +13,9 @@
       = render 'panel/shared/form_name_and_disabled_part', f: f
 
       .form-group
-        = f.label t('panel.views.body')
+        = f.label t('panel.views.youtube_link')
         %fieldset
-          = f.text_area :body, rows: 8, class: 'tinymce'
-          = tinymce
+          = f.text_field :body
 
       .actions
         = f.button t('panel.views.proceed'), class: 'btn btn-success'

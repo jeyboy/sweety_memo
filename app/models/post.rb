@@ -2,6 +2,11 @@ require 'previewer'
 require 'cleaner'
 
 class Post < ActiveRecord::Base
+  CONTENT_TYPES = [
+      TEXT_CONTENT = 1,
+      VIDEO_CONTENT = 2
+  ]
+
   belongs_to :topic
 
   validates :name, uniqueness: true, presence: true, length: { maximum: 254}
@@ -53,10 +58,16 @@ class Post < ActiveRecord::Base
 
   private
   def unescape_and_prepare
-    self.body = Cleaner.prepare_text(CGI.unescape(self.body))
+    case content_type
+      when TEXT_CONTENT
+        self.body = Cleaner.prepare_text(CGI.unescape(self.body))
 
-    if errors.empty?
-      self.preview_length = Previewer.prepare_preview(self.body).length
+        if errors.empty?
+          self.preview_length = Previewer.prepare_preview(self.body).length
+        end
+      else
+        self.body = (self.body.match(/((?:v=)|(?:embed\/))(?<code>\w+)/mix)[:code] rescue nil)
+        errors.add(:youtube_url, 'Url should has valid format (www.youtube.com/watch?v=2hSKxFJbE_8)') unless self.body
     end
   end
 end
