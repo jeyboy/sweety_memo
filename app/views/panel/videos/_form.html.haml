@@ -15,7 +15,7 @@
       .form-group
         = f.label t('panel.views.youtube_link')
         %fieldset
-          = f.text_field :body
+          = f.text_field :body, placeholder: 'www.youtube.com/watch?v=2hSKxFJbE_8 или просто 2hSKxFJbE_8'
 
       .actions
         = f.button t('panel.views.proceed'), class: 'btn btn-success'

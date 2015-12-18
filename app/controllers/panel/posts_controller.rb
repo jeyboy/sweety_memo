@@ -5,21 +5,21 @@ class Panel::PostsController < Panel::BaseController
     @posts = Post
     @posts = @posts.where(content_type: params[:content_type].to_i) if params[:content_type].to_i > 1
     @posts = paginate(@posts)
-    render("panel/#{get_path_part}/index")
+    render("panel/#{Post.content_type_str(params[:content_type])}/index")
   end
 
   def show
-    render("panel/#{get_path_part}/show")
+    render("panel/#{@post.content_type_str}/show")
   end
 
   def new
     @post = Post.new(topic_id: params[:topic_id], content_type: params[:content_type])
 
-    render("panel/#{get_path_part}/new")
+    render("panel/#{@post.content_type_str}/new")
   end
 
   def edit
-    render("panel/#{get_path_part}/edit")
+    render("panel/#{@post.content_type_str}/edit")
   end
 
   def create
@@ -27,9 +27,9 @@ class Panel::PostsController < Panel::BaseController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to get_object_path, notice: "#{get_path_part.singularize.humanize} was successfully created." }
+        format.html { redirect_to get_object_path, notice: "#{@post.readable_content_type} was successfully created." }
       else
-        format.html { render "panel/#{get_path_part}/new" }
+        format.html { render "panel/#{@post.content_type_str}/new" }
       end
     end
   end
@@ -37,43 +37,29 @@ class Panel::PostsController < Panel::BaseController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to get_object_path, notice: "#{get_path_part.singularize.humanize} was successfully updated." }
+        format.html { redirect_to get_object_path, notice: "#{@post.readable_content_type} was successfully updated." }
       else
-        format.html { render "panel/#{get_path_part}/edit" }
+        format.html { render "panel/#{@post.content_type_str}/edit" }
       end
     end
   end
 
   def destroy
-    redirect_path = [:panel, get_path_part.symbolize]
+    redirect_path = [:panel, @post.content_type_str.to_sym]
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to redirect_path, notice: "#{get_path_part.singularize.humanize} was successfully destroyed." }
+      format.html { redirect_to redirect_path, notice: "#{@post.readable_content_type} was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
     def get_object_path
-      case @post.content_type
-        when POST_VIDEO_CONTENT
-          panel_video_path(@post)
-        else
-          panel_post_path(@post)
-      end
-    end
-
-    def get_path_part
-      case (@post.content_type rescue params[:content_type].to_i)
-        when POST_VIDEO_CONTENT
-          'videos'
-        else
-          'posts'
-      end
+      send "panel_#{@post.content_type_str.singularize}_path".to_sym, @post
     end
 
     def set_post
-      redirect_to(:back, alert: 'Object is not existed') unless (@post = Post.find_by(id: params[:id].to_i))
+      redirect_to(:back, alert: "#{@post.readable_content_type} is not existed") unless (@post = Post.find_by(id: params[:id].to_i))
     end
 
     def post_params

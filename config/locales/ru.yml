@@ -81,7 +81,7 @@ ru:
 
       name: 'Название'
       body: 'Содержимое'
-      youtube_link: 'Ссылка на Youtube'
+      youtube_link: 'Ссылка или идентификатор видео на Youtube'
       description: 'Описание'
       disabled: 'Деактивировать'
       image: 'Картинка'

@@ -2,10 +2,10 @@ require 'previewer'
 require 'cleaner'
 
 class Post < ActiveRecord::Base
-  CONTENT_TYPES = [
-      TEXT_CONTENT = 1,
-      VIDEO_CONTENT = 2
-  ]
+  CONTENT_TYPES = {
+      (TEXT_CONTENT = 1) => 'posts',
+      (VIDEO_CONTENT = 2) => 'videos'
+  }
 
   belongs_to :topic
 
@@ -16,12 +16,24 @@ class Post < ActiveRecord::Base
 
   scope :enabled, -> { where(disabled: false) }
 
+  def self.content_type_str(type_id)
+    Post::CONTENT_TYPES[type_id.to_i]
+  end
+
+  def content_type_str
+    Post.content_type_str(content_type)
+  end
+
+  def readable_content_type
+    content_type_str.singularize.humanize
+  end
+
   def content
     case content_type
       when TEXT_CONTENT
         body
       else
-        "<div style='text-align: center;'><iframe src='//www.youtube.com/embed/#{body}?rel=0' width='480' height='400' allowfullscreen></iframe></div>"
+        "<div class='videowrapper'><iframe src='//www.youtube.com/embed/#{body}?rel=0' width='480' height='400' allowfullscreen></iframe></div>"
         # -#"http://www.youtube.com/embed/?listType=user_uploads&list=YOURCHANNELNAME"
         # -#&showinfo=0 — используя данную переменную вы сможете убрать название и рейтинг из плеера.
         # -#&egm=0 — сможете активировать расширенное всплывающее меню.
@@ -95,7 +107,7 @@ class Post < ActiveRecord::Base
           self.preview_length = Previewer.prepare_preview(self.body).length
         end
       else
-        self.body = (self.body.match(/((?:v=)|(?:embed\/))(?<code>\w+)/mix)[:code] rescue nil)
+        self.body = (self.body.match(/((?:v=)|(?:embed\/))(?<code>\w+)/mix)[:code] rescue self.body)
         errors.add(:youtube_url, 'Url should has valid format (www.youtube.com/watch?v=2hSKxFJbE_8)') unless self.body
     end
   end

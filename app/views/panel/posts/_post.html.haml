@@ -1,4 +1,5 @@
 %tr
+  %td= image_tag("#{post.content_type_str}.png", height: 60)
   %td
     %strong= link_to post.name, [:panel, post]
   %td= link_to t('panel.views.edit'), [:edit, :panel, post], class: 'btn btn-primary'
