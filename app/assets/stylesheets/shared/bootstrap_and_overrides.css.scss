@@ -7,6 +7,10 @@
   =require twitter-bootstrap-static/fontawesome
 */
 
+.dropdown-backdrop {
+  position: static;
+}
+
 .inlined {
   display: inline-block;
   vertical-align: middle;
