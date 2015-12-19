@@ -3,4 +3,4 @@
   .item.fixed_height
     = link_to category_path(category) do
       %h2= category.name
-      %img.img-rounded{src: (category.image.file.url rescue ImageUploader::default_url)}
+      %img.img-rounded{src: (category.image.file.standard.url rescue ImageUploader::default_url)}
