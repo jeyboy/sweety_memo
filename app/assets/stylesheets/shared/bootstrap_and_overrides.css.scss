@@ -35,54 +35,6 @@
     padding-left: 8px;
 }
 
-.item {
-    h2 {
-      text-overflow: ellipsis;
-      border-bottom: 1px solid gray;
-    }
-
-    word-wrap: break-word;
-    border: 1px #e4e4e4 solid;
-    border-radius: 8px;
-    box-shadow: 0 0 6px #ccc;
-    margin: 15px 0;
-    padding: 10px;
-
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    $height: 300px;
-    $padd: 20px;
-    $head: 80px;
-
-    &.fixed_height {
-      word-wrap: normal;
-
-      padding: 0 15px;
-      height: $height;
-      max-height: $height;
-      min-height: $height;
-      overflow: hidden;
-
-      h2 {
-        max-height: $head;
-        overflow: hidden;
-      }
-
-      img {
-        max-width: 100%;
-        width: auto;
-        height: $height - $head;
-        max-height: $height - $head;
-        //position: relative !important;
-        //top: calc(50% - 40px); // double $padd
-        //transform: translateY(-50%);
-      }
-    }
-}
-
 a.uncolored, a:hover.uncolored {
   color: black;
 }
