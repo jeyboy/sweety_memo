@@ -33,7 +33,7 @@ class Post < ActiveRecord::Base
       when TEXT_CONTENT
         body
       else
-        "<div class='videowrapper'><iframe src='//www.youtube.com/embed/#{body}?rel=0' width='480' height='400' allowfullscreen></iframe></div>"
+        "<iframe src='//www.youtube.com/embed/#{body}?rel=0' width='480' height='400' allowfullscreen></iframe>"
         # -#"http://www.youtube.com/embed/?listType=user_uploads&list=YOURCHANNELNAME"
         # -#&showinfo=0 — используя данную переменную вы сможете убрать название и рейтинг из плеера.
         # -#&egm=0 — сможете активировать расширенное всплывающее меню.
