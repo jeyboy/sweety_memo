@@ -60,6 +60,8 @@ jQuery ->
         wrap.style.width = '100%'
         wrap.style.position = 'relative'
         wrap.style.paddingTop = videoRatio + '%'
+        wrap.style.minHeight = '50px'
+        wrap.style.minWidth = '450px'
 
         ###
         # Add the iframe inside our newly created <div>
