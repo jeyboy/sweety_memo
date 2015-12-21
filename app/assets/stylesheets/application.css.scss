@@ -77,7 +77,7 @@
   li a, a.dropdown-toggle {
     background: rgba(255, 255, 255, 0.9) none repeat scroll 0 0;
     border-radius: 8px !important;
-    border: 1px solid #888;
+    border: 1px solid #AAA;
   }
 
   li.active a {
@@ -96,5 +96,6 @@
 }
 
 .navbar-brand {
-  color: #428bca !important;
+  font-family: 'Fofont';
+  font-weight: bold;
 }

@@ -21,6 +21,9 @@ module SweetyMemo
     config.i18n.default_locale = :ru
     # config.i18n.fallbacks = true
 
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+    config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
+
     config.assets.precompile += %w( panel.css )
     config.assets.precompile += %w( panel.js )
 
