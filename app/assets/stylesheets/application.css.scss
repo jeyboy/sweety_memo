@@ -68,6 +68,10 @@
   background: rgba(255, 255,255,0.8) none repeat scroll 0 0
 }
 
+body .navbar {
+  background: rgba(255, 255,255,0.92) none repeat scroll 0 0
+}
+
 //, a.dropdown-toggle
 .navbar-nav {
   li {
@@ -75,7 +79,7 @@
   }
 
   li a, a.dropdown-toggle {
-    background: rgba(255, 255, 255, 0.9) none repeat scroll 0 0;
+    background: rgba(255, 255, 255, 0.7) none repeat scroll 0 0;
     border-radius: 8px !important;
     border: 1px solid #AAA;
   }
@@ -91,8 +95,12 @@
   }
 }
 
-.navbar-toggle {
-  background-color: #fff;
+//.navbar-toggle {
+//  background: rgba(255, 255, 255, 0.7) none repeat scroll 0 0;
+//}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  background-color: khaki;
 }
 
 .navbar-brand {
