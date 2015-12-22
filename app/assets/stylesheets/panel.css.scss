@@ -1,13 +1,20 @@
 /*
  *= require_directory ./panel
  *= require_directory ./shared
+ *= require wisiwygjs/wysiwyg-editor.min
  *= require_self
  */
 
-form fieldset * {
+form fieldset {
+  input, textarea, select {
     width: 100%;
+  }
 }
 
 table.table > tbody > tr > td{
     vertical-align: middle;
+}
+
+.wysiwyg-editor {
+  min-height: 3em;
 }

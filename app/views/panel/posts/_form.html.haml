@@ -15,8 +15,7 @@
       .form-group
         = f.label t('panel.views.body')
         %fieldset
-          = f.text_area :body, rows: 8, class: 'tinymce'
-          = tinymce
+          = f.text_area :body, rows: 8, class: 'editor'
 
       .actions
         = f.button t('panel.views.proceed'), class: 'btn btn-success'

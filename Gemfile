@@ -19,8 +19,6 @@ gem 'haml-rails'
 
 # gem 'Bootstrap-Image-Gallery-rails'
 
-gem 'tinymce-rails'
-
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'cloudinary'
