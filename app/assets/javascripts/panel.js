@@ -43,7 +43,7 @@ $('document').ready(function() {
                                 'Courier New'      : 'Courier New,Courier',
                                 'Times New Roman'  : 'Times New Roman,Times'
                             };
-                            var $list = $('<div/>').addClass('wysiwyg-plugin-list')
+                            var $list = $('<ul/>').addClass('wysiwyg-plugin-list list-group')
                                 .attr('unselectable','on');
                             $.each( list_fontnames, function( name, font ) {
                                 var $link = $('<a/>').attr('href','#')
@@ -56,12 +56,12 @@ $('document').ready(function() {
                                         event.preventDefault();
                                         return false;
                                     });
-                                $list.append( $link );
+                                $list.append($('<li/>').addClass('list-group-item').append($link));
                             });
                             $popup.append( $list );
                         },
-                        //showstatic: true,    // wanted on the toolbar
-                        showselection: index == 0 ? true : false    // wanted on selection
+                        showstatic: true,    // wanted on the toolbar
+                        showselection: true    // wanted on selection
                     },
                     // Fontsize plugin
                     fontsize: {
@@ -78,7 +78,7 @@ $('document').ready(function() {
                             list_fontsizes.push('36px');
                             list_fontsizes.push('48px');
                             list_fontsizes.push('72px');
-                            var $list = $('<div/>').addClass('wysiwyg-plugin-list')
+                            var $list = $('<ul/>').addClass('wysiwyg-plugin-list list-group')
                                 .attr('unselectable','on');
                             $.each( list_fontsizes, function( index, size ) {
                                 var $link = $('<a/>').attr('href','#')
@@ -94,7 +94,7 @@ $('document').ready(function() {
                                         event.preventDefault();
                                         return false;
                                     });
-                                $list.append( $link );
+                                $list.append($('<li/>').addClass('list-group-item').append($link));
                             });
                             $popup.append( $list );
                         }
@@ -117,7 +117,7 @@ $('document').ready(function() {
                                 'Header 6' : '<h6>',
                                 'Code'     : '<pre>'
                             };
-                            var $list = $('<div/>').addClass('wysiwyg-plugin-list')
+                            var $list = $('<ul/>').addClass('wysiwyg-plugin-list list-group')
                                 .attr('unselectable','on');
                             $.each( list_headers, function( name, format ) {
                                 var $link = $('<a/>').attr('href','#')
@@ -130,7 +130,7 @@ $('document').ready(function() {
                                         event.preventDefault();
                                         return false;
                                     });
-                                $list.append( $link );
+                                $list.append($('<li/>').addClass('list-group-item').append($link));
                             });
                             $popup.append( $list );
                         }
