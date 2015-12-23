@@ -9,4 +9,8 @@ class Category < ActiveRecord::Base
   scope :enabled, -> { where(disabled: false) }
 
   accepts_nested_attributes_for :image, reject_if: ->(attributes) { attributes['file'].blank? }
+
+  def preview
+    ("#{name[0..15]} ..." if name.length > 15) || name
+  end
 end

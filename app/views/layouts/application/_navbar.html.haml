@@ -26,7 +26,7 @@
 
         - Category.enabled.all.each do |category|
           - if category.topics.present?
-            = drop_down category.name do
+            = drop_down category.preview do
               - category.topics.first(5).each do |topic|
                 = menu_item topic.name, topic_path(topic)
               - if category.topics.count > 5

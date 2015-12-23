@@ -1,5 +1,5 @@
 .col-xs-12.col-sm-6.col-md-4.col-lg-3.text-center
   .item.fixed_height
     = link_to topic_path(topic) do
-      %h2= topic.name
+      %h3= topic.name
       %img.img-rounded{src: (topic.image.file.standard.url rescue ImageUploader::default_url)}
