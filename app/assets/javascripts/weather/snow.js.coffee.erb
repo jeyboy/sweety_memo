@@ -22,11 +22,9 @@ window.flake = ->
   uwidth = window.innerWidth
   uheight = window.innerHeight
 
-  console.log(left, top, uwidth, uheight)
-
   for i in [0...obj.length]
     y_pos[i] += sty[i]
-    if y_pos[i] < top || y_pos[i] > top + uheight - 50 || x_pos[i] < left || x_pos[i] > left + uwidth - 70
+    if y_pos[i] < top || y_pos[i] > top + uheight - 55 || x_pos[i] < left || x_pos[i] > left + uwidth - 70
       x_pos[i] = Math.random() * (left + uwidth - (amp[i]) - 50)
       y_pos[i] = top
     deltax[i] += stx[i]
