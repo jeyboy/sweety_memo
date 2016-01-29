@@ -16,25 +16,36 @@ window.deltax = new Array();
 window.obj = new Array();
 
 window.flake = ->
+  doc = document.documentElement;
+  left = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
+  top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+  uwidth = window.innerWidth
+  uheight = window.innerHeight
+
+  console.log(left, top, uwidth, uheight)
+
   for i in [0...obj.length]
     y_pos[i] += sty[i]
-    if y_pos[i] > uheight - 49
-      x_pos[i] = Math.random() * (uwidth - (amp[i]) - 29)
-      y_pos[i] = 0
+    if y_pos[i] < top || y_pos[i] > top + uheight || x_pos[i] < left || x_pos[i] > left + uwidth - 70
+      x_pos[i] = Math.random() * (left + uwidth - (amp[i]) - 50)
+      y_pos[i] = top
     deltax[i] += stx[i]
     obj[i].style.top = y_pos[i] + 'px'
     obj[i].style.left = x_pos[i] + amp[i] * Math.sin(deltax[i]) + 'px'
 
-  setTimeout 'flake()', 50
+  setTimeout 'flake()', 40
 
 
-window.init_snow = (amount = Math.round(uheight / 30)) ->
-  for i in [0...amount]
+window.init_snow = (amount = Math.round(uheight / 20)) ->
+  while(obj.length > 0)
+    document.body.removeChild(obj.shift());
+
+  for i in [0..amount]
     amp[i] = Math.random() * 19
-    x_pos[i] = Math.random() * (uwidth - (amp[i]) - 29)
+    x_pos[i] = Math.random() * (uwidth - (amp[i]) - 50)
     y_pos[i] = Math.random() * uheight
     stx[i] = 0.03 + Math.random() * 0.25
-    sty[i] = 2 + Math.random()
+    sty[i] = 3 + Math.random()
     deltax[i] = 0
     if ie4 or ns6
       new_flake = document.createElement('img')

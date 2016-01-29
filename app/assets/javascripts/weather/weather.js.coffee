@@ -33,8 +33,8 @@ parse_weather_data = (response) ->
       clouds: block['clouds']['all'] # %
       description: block['weather'][0]['description']
       icon: icon
-      rain: block['rain']['3h'] # mm for last 3 hours
-      snow: block['snow']['3h'] # mm for last 3 hours
+      rain: if block['rain'] then block['rain']['3h'] # mm for last 3 hours
+      snow: if block['snow'] then block['snow']['3h'] # mm for last 3 hours
       day: icon[icon.length - 1] == 'd'
     })
 
