@@ -26,7 +26,7 @@ window.flake = ->
 
   for i in [0...obj.length]
     y_pos[i] += sty[i]
-    if y_pos[i] < top || y_pos[i] > top + uheight || x_pos[i] < left || x_pos[i] > left + uwidth - 70
+    if y_pos[i] < top || y_pos[i] > top + uheight - 50 || x_pos[i] < left || x_pos[i] > left + uwidth - 70
       x_pos[i] = Math.random() * (left + uwidth - (amp[i]) - 50)
       y_pos[i] = top
     deltax[i] += stx[i]
@@ -36,7 +36,7 @@ window.flake = ->
   setTimeout 'flake()', 40
 
 
-window.init_snow = (amount = Math.round(uheight / 20)) ->
+window.init_snow = (amount = 40) ->
   while(obj.length > 0)
     document.body.removeChild(obj.shift());
 
