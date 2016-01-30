@@ -9,13 +9,13 @@
     %meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0'}
   %body
     = render 'layouts/application/navbar'
-    :javascript
-      recalc_padding();
 
     .container-fluid.body
       = image_tag('background.jpg', id: 'full-screen-background-image')
       = render 'shared/notifications'
 
       .row
-        .col-xs-12
+        .col-xs-1
+          .weather_panel
+        .col-xs-11
           = yield

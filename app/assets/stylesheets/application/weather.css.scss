@@ -1,0 +1,15 @@
+.weather_panel {
+  z-index: 10000;
+  position: fixed;
+  left: -1000px;
+  border-radius: 8px;
+  background: rgba(255, 255,255,0.8) none repeat scroll 0 0;
+
+  .weather_block {
+    &:not(:last-child) {
+      border-bottom: 1px solid gray;
+    }
+    text-align: center;
+    padding: 0 4px;
+  }
+}

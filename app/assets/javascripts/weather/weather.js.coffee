@@ -1,5 +1,5 @@
 window.wheater = undefined
-window.weather_limit = 9
+window.weather_limit = 6
 #window.sunrise = undefined
 #window.sunset = undefined
 
@@ -41,12 +41,12 @@ parse_weather_data = (response) ->
   wheater_proc()
 
 fill_panel = ->
-  $block = $('.navbar .weather').html('')
+  $block = $('.weather_panel').html('')
 
   for block in window.wheater[..window.weather_limit]
     date = new Date(block['time'] * 1000);
     $block.append("""
-        <div class='weather_block' style='border-right: 1px solid gray; width: 60px; float: left; text-align: center;'>
+        <div class='weather_block'>
           <span>#{date.getHours()}:00 #{date.getDate()}.#{date.getFullYear()}</span>
           <img src="http://openweathermap.org/img/w/#{block['icon']}.png"></img>
           <span>#{Math.round(block['temperature'])}&deg;</span>
@@ -54,8 +54,13 @@ fill_panel = ->
       """)
 
 
+  $block.attr('data-offset', -90)
+  if ($block.position().left < -999)
+    $block.css({"left": $block.data('offset') + 'px'});
+
+
 init_theme = (block) ->
-  snowfall()
+#  snowfall()
 
 
 wheater_proc = ->
@@ -68,3 +73,7 @@ wheater_proc = ->
 
 $ ->
   init_weather_data()
+
+  $('body').on 'click', '.weather_panel', ->
+    $that = $(@)
+    $that.css({"left": (if ($that.position().left == 0) then $that.data('offset') else 0) + 'px'});
