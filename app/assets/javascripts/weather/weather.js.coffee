@@ -41,6 +41,9 @@ parse_weather_data = (response) ->
   wheater_proc()
 
 fill_panel = ->
+  if (window.wheater.length == 0)
+    return
+
   $block = $('.weather_panel').html('')
   space = window.innerHeight - 15 - $('.navbar-fixed-top').outerHeight()
   item_max_height = 50
@@ -83,6 +86,8 @@ wheater_proc = ->
 
 $ ->
   init_weather_data()
+
+  $(window).on 'resize', fill_panel # need to optimize rebuild of panel on resize
 
   $('body').on 'click', '.weather_panel', ->
     $that = $(@)
