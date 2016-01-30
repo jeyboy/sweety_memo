@@ -4,8 +4,10 @@
   left: -1000px;
   border-radius: 8px;
   background: rgba(255, 255,255,0.8) none repeat scroll 0 0;
+  margin: 15px 0;
 
   .weather_block {
+    max-height: 50px;
     &:not(:last-child) {
       border-bottom: 1px solid gray;
     }

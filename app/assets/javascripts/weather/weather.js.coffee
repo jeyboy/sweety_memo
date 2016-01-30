@@ -42,19 +42,29 @@ parse_weather_data = (response) ->
 
 fill_panel = ->
   $block = $('.weather_panel').html('')
+  space = window.innerHeight - 15 - $('.navbar-fixed-top').outerHeight()
+  item_max_height = 50
+  offset = 0
 
-  for block in window.wheater[..window.weather_limit]
+  for block in window.wheater#[..window.weather_limit]
     date = new Date(block['time'] * 1000);
-    $block.append("""
-        <div class='weather_block'>
-          <span>#{date.getHours()}:00 #{date.getDate()}.#{date.getFullYear()}</span>
-          <img src="http://openweathermap.org/img/w/#{block['icon']}.png"></img>
-          <span>#{Math.round(block['temperature'])}&deg;</span>
-        </div>
-      """)
 
+    $elem = $("""
+      <div class='weather_block'>
+        <span>#{date.getHours()}:00 #{date.getDate()}.#{date.getFullYear()}</span>
+        <img src="http://openweathermap.org/img/w/#{block['icon']}.png"></img>
+        <span>#{Math.round(block['temperature'])}&deg;</span>
+      </div>
+    """)
 
-  $block.attr('data-offset', -90)
+    if ((space -= item_max_height) > 0)
+      $block.append($elem)
+
+      offset = Math.max(offset, $elem.find('img').position().left)
+
+    else break
+
+  $block.attr('data-offset', -offset)
   if ($block.position().left < -999)
     $block.css({"left": $block.data('offset') + 'px'});
 
