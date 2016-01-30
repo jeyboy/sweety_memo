@@ -3,6 +3,7 @@
 }
 
 .weather_panel {
+  z-index: 999;
   position: fixed;
   left: -1000px;
   border-radius: 8px;
