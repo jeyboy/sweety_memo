@@ -73,7 +73,7 @@ fill_panel = ->
     else break
 
   $block.attr('data-offset', -offset)
-  if ($block.position().left < -999)
+  if ($block.position().left != 0)
     $block.css({"left": $block.data('offset') + 'px'});
 
 
