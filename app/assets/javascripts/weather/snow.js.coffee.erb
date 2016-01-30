@@ -5,7 +5,6 @@ window.flakes = new Array(
     "<%= asset_path('weather/flakes/flake4.gif')%>",
     "<%= asset_path('weather/flakes/flake5.gif')%>"
 )
-window.show_initiated = false
 
 window.amp = new Array();
 window.x_pos = new Array();
@@ -34,35 +33,26 @@ window.flake = ->
   setTimeout 'flake()', 40
 
 
-window.init_snow = (amount = 40) ->
+window.init_snow = (amount = window.innerWidth * window.innerHeight / 5000) ->
   while(obj.length > 0)
     document.body.removeChild(obj.shift());
 
   for i in [0..amount]
     amp[i] = Math.random() * 19
-    x_pos[i] = Math.random() * (uwidth - (amp[i]) - 50)
-    y_pos[i] = Math.random() * uheight
+    x_pos[i] = Math.random() * (window.innerWidth - (amp[i]) - 50)
+    y_pos[i] = Math.random() * window.innerHeight
     stx[i] = 0.03 + Math.random() * 0.25
     sty[i] = 3 + Math.random()
     deltax[i] = 0
-    if ie4 or ns6
-      new_flake = document.createElement('img')
-      new_flake.setAttribute('id', "sn#{i}")
-      new_flake.setAttribute('style', "position:absolute; z-index: -1; visibility:visible; top:-50px; left:-50px;")
-      new_flake.setAttribute('src', flakes[Math.floor(Math.random() * flakes.length)])
-      document.body.appendChild(new_flake);
-      obj[i] = new_flake
+    new_flake = document.createElement('img')
+    new_flake.setAttribute('id', "sn#{i}")
+    new_flake.setAttribute('style', "position:absolute; z-index: -1; visibility:visible; top:-50px; left:-50px;")
+    new_flake.setAttribute('src', flakes[Math.floor(Math.random() * flakes.length)])
+    document.body.appendChild(new_flake);
+    obj[i] = new_flake
 
 window.snowfall = (amount) ->
   init_snow(amount)
   flake()
 
 $ ->
-  window.ie4 = if (document.all) then 1 else 0
-  window.ns6 = if (document.getElementById && !document.all) then 1 else 0
-  window.uheight = if (document.layers) then window.innerHeight else window.document.body.scrollHeight
-
-  if (window.uheight < window.document.body.clientHeight)
-    window.uheight = window.document.body.clientHeight
-
-  window.uwidth = if (document.layers) then window.innerWidth else window.document.body.clientWidth;
