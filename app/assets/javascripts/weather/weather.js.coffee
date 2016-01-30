@@ -50,13 +50,18 @@ fill_panel = ->
   offset = 0
 
   for block in window.wheater#[..window.weather_limit]
-    date = new Date(block['time'] * 1000);
+    date = new Date(block.time * 1000);
 
     $elem = $("""
-      <div class='weather_block'>
-        <span>#{date.getHours()}:00 #{date.getDate()}.#{date.getFullYear()}</span>
-        <span class='degrees'>#{Math.round(block['temperature'])}&deg;</span>
-        <img src="http://openweathermap.org/img/w/#{block['icon']}.png"></img>
+      <div class='weather_block' style='clear: both'>
+        <div style='float: left; padding-top: 5px;'>
+          <div>#{date.getHours()}:00 #{date.getDate()}.#{date.getFullYear()} - #{block.description}</div>
+          <div>Влажность: #{block.humidity}% Давление: #{block.pressure}mm Облачность: #{block.clouds}%</div>
+        </div>
+        <div style='float: right'>
+          <span class='degrees'>#{Math.round(block.temperature)}&deg;</span>
+          <img src="http://openweathermap.org/img/w/#{block.icon}.png"></img>
+        </div>
       </div>
     """)
 
