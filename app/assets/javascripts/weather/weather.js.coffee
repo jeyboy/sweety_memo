@@ -86,4 +86,12 @@ $ ->
 
   $('body').on 'click', '.weather_panel', ->
     $that = $(@)
-    $that.css({"left": (if ($that.position().left == 0) then $that.data('offset') else 0) + 'px'});
+    new_pos = 0
+
+    if ($that.position().left == 0)
+      new_pos = $that.data('offset')
+      $that.removeClass('white')
+    else
+      $that.addClass('white')
+
+    $that.css({"left": new_pos + 'px'});
