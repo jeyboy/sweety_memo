@@ -19,8 +19,13 @@
     text-align: center;
     padding: 0 4px;
 
+    .degrees {
+      position: absolute;
+      right: 20px;
+    }
+
     img {
-      margin-top: -12px;
+      padding-top: 5px;
     }
   }
 }

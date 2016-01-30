@@ -59,7 +59,7 @@ fill_panel = ->
           <div>Влажность: #{block.humidity}% Давление: #{block.pressure}mm Облачность: #{block.clouds}%</div>
         </div>
         <div style='float: right'>
-          <div>#{Math.round(block.temperature)}&deg;</div>
+          <span class='degrees'>#{Math.round(block.temperature)}&deg;</span>
           <img src="http://openweathermap.org/img/w/#{block.icon}.png"></img>
         </div>
       </div>
