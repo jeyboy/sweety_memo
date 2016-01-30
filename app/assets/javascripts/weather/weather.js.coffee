@@ -52,8 +52,8 @@ fill_panel = ->
     $elem = $("""
       <div class='weather_block'>
         <span>#{date.getHours()}:00 #{date.getDate()}.#{date.getFullYear()}</span>
+        <span class='degrees'>#{Math.round(block['temperature'])}&deg;</span>
         <img src="http://openweathermap.org/img/w/#{block['icon']}.png"></img>
-        <span>#{Math.round(block['temperature'])}&deg;</span>
       </div>
     """)
 

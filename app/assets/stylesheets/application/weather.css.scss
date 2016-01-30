@@ -7,11 +7,21 @@
   margin: 15px 0;
 
   .weather_block {
+    overflow: hidden;
     max-height: 50px;
     &:not(:last-child) {
       border-bottom: 1px solid gray;
     }
     text-align: center;
     padding: 0 4px;
+
+    .degrees {
+      position: absolute;
+      right: 20px;
+    }
+
+    img {
+      padding-top: 5px;
+    }
   }
 }
