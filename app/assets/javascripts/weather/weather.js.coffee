@@ -70,7 +70,7 @@ fill_panel = ->
 
 
 init_theme = (block) ->
-  snowfall()
+#  snowfall()
 
 
 wheater_proc = ->
