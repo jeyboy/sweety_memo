@@ -90,8 +90,8 @@ $ ->
 
     if ($that.position().left == 0)
       new_pos = $that.data('offset')
-      $that.removeClass('white')
+      $that.removeClass('colored')
     else
-      $that.addClass('white')
+      $that.addClass('colored')
 
     $that.css({"left": new_pos + 'px'});
