@@ -1,5 +1,6 @@
 window.weather_clock = 50;
 window.weather_min_objs = 10;
+window.weather_def_del = 15000;
 
 function initClientRect() {
     doc = document.documentElement;

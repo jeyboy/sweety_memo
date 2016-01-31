@@ -33,7 +33,7 @@ window.flake_proc = ->
     setTimeout 'flake_proc()', window.weather_clock
 
 
-window.init_snowfall = (amount = window.innerWidth * window.innerHeight / 10000) ->
+window.init_snowfall = (amount = window.innerWidth * window.innerHeight / window.weather_def_del) ->
   amount = Math.max(window.weather_min_objs, amount)
 
   wrapper = wrapperNode()
