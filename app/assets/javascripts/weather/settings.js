@@ -8,3 +8,7 @@ function initClientRect() {
     window.uwidth = window.innerWidth;
     window.uheight = window.innerHeight;
 }
+
+function wrapperNode() {
+  return document.getElementById('body_wrapper');
+}

@@ -12,6 +12,7 @@ window.show_started = false
 
 window.flake_proc = ->
   initClientRect()
+  wrapper = wrapperNode()
 
   for i in [flakes_obj.length-1..0]
     flake_obj = flakes_obj[i]
@@ -21,7 +22,7 @@ window.flake_proc = ->
         flake_obj.x_pos = Math.random() * (uleft + uwidth - flake_obj.amp)
         flake_obj.y_pos = utop
       else
-        document.body.removeChild(flakes_obj.splice(i, 1)[0].flake);
+        wrapper.removeChild(flakes_obj.splice(i, 1)[0].flake);
         continue
 
     flake_obj.deltax += flake_obj.stx
@@ -34,8 +35,11 @@ window.flake_proc = ->
 
 window.init_snowfall = (amount = window.innerWidth * window.innerHeight / 10000) ->
   amount = Math.max(window.weather_min_objs, amount)
+
+  wrapper = wrapperNode()
+
   while(flakes_obj.length > amount)
-    document.body.removeChild(flakes_obj.pop().flake);
+    wrapper.removeChild(flakes_obj.pop().flake);
 
   while(flakes_obj.length < amount)
     i = flakes_obj.length
@@ -44,7 +48,9 @@ window.init_snowfall = (amount = window.innerWidth * window.innerHeight / 10000)
     new_flake.setAttribute('id', "sn#{i}")
     new_flake.setAttribute('style', "position:absolute; z-index: -1; visibility:visible; top:-50px; left:-50px;")
     new_flake.setAttribute('src', flakes[Math.floor(Math.random() * flakes.length)])
-    document.body.appendChild(new_flake);
+    wrapper.appendChild(new_flake);
+
+    console.log(Math.random() * window.innerHeight, window.innerHeight)
 
     amp = Math.random() * 19
     flakes_obj[i] = {
