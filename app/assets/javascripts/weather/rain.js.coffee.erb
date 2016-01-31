@@ -1,0 +1,62 @@
+window.rain_drops = new Array(
+    "<%= asset_path('weather/drops/rain_drop.gif')%>",
+    "<%= asset_path('weather/drops/rain_drop2.gif')%>",
+)
+
+window.drops_obj = new Array();
+window.rain_started = false
+
+
+window.rain_proc = ->
+  initClientRect()
+
+  for i in [drops_obj.length-1..0]
+    drop_obj = drops_obj[i]
+    drop_obj.y_pos += drop_obj.sty
+    drop_obj.x_pos += drop_obj.stx
+    if drop_obj.y_pos < utop || drop_obj.y_pos > utop + uheight - 76 || drop_obj.x_pos < uleft || drop_obj.x_pos > uleft + uwidth + 300
+      if (window.rain_started)
+        drop_obj.x_pos = Math.random() * (uleft + uwidth + 200) + 100
+        drop_obj.y_pos = utop
+      else
+        document.body.removeChild(drops_obj.splice(i, 1)[0].drop);
+        continue
+
+    drop_obj.drop.style.top = drop_obj.y_pos + 'px'
+    drop_obj.drop.style.left = drop_obj.x_pos + 'px'
+
+  if (drops_obj.length > 0)
+    setTimeout 'rain_proc()', window.weather_clock
+
+
+window.init_rainfall = (amount = window.innerWidth * window.innerHeight / 10000) ->
+  amount = Math.max(window.weather_min_objs, amount)
+  while(flakes_obj.length > amount)
+    document.body.removeChild(drops_obj.pop().flake);
+
+  while(drops_obj.length < amount)
+    i = drops_obj.length
+
+    new_drop = document.createElement('img')
+    new_drop.setAttribute('id', "rn#{i}")
+    new_drop.setAttribute('style', "position:absolute; z-index: -1; visibility:visible; top:-50px; left:-50px;")
+    new_drop.setAttribute('src', rain_drops[Math.floor(Math.random() * rain_drops.length)])
+    document.body.appendChild(new_drop);
+
+    drops_obj[i] = {
+      drop: new_drop
+      x_pos: Math.random() * window.innerWidth
+      y_pos: Math.random() * window.innerHeight
+      stx: -2
+      sty: 3 + Math.random()
+    }
+
+
+window.rainfall = (amount) ->
+  init_rainfall(amount)
+  if (!window.rain_started)
+    window.rain_started = true
+    rain_proc()
+
+window.stopRainfall = ->
+    window.rain_started = false
