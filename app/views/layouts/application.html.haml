@@ -8,13 +8,14 @@
 
     %meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0'}
   %body
-    = render 'layouts/application/navbar'
+    #body_wrapper
+      = render 'layouts/application/navbar'
 
-    .container-fluid.body
-      = image_tag('background.jpg', id: 'full-screen-background-image')
-      = render 'shared/notifications'
+      .container-fluid.body
+        = image_tag('background.jpg', id: 'full-screen-background-image')
+        = render 'shared/notifications'
 
-      .row
-        .weather_panel
-        .col-xs-12.with_padding
-          = yield
+        .row
+          .weather_panel
+          .col-xs-12.with_padding
+            = yield
