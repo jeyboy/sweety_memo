@@ -7,7 +7,7 @@
 %table.table.table-striped
   %tr
     %td{colspan: 4}
-      %b= link_to t('gallery_items_without_topic'), unclassified_gallery_items_panel_gallery_topics_path
+      %b= link_to t('token.gallery_items_without_topic'), unclassified_gallery_items_panel_gallery_topics_path
 
   = render partial: 'panel/gallery_topics/gallery_topic', collection: @gallery_topics
 

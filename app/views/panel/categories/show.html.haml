@@ -9,6 +9,8 @@
       = link_to 'Edit', [:edit, :panel, @category], class: 'btn btn-primary'
       = link_to t('panel.views.remove'), [:panel, @category], method: :delete, class: 'btn btn-danger', data: {confirm: t('panel.views.confirm')}
 
+= link_to t('token.add_topic_linked'), new_panel_topic_path(category_id: @category.id), class: 'btn btn-success'
+
 - if @topics.present?
   %h4= t('token.topics_in_category')
   = paginate @topics, theme: 'twitter-bootstrap-3'
@@ -20,4 +22,3 @@
 - else
   .text-center
     %h1= t('token.no_topics')
-    = link_to t('token.add_topic_linked'), new_panel_topic_path(category_id: @category.id), class: 'btn btn-success'
