@@ -1,7 +1,8 @@
-.inlined= image_tag((@topic.image.file.thumbnail.url rescue ImageUploader::default_url), height: '100', class: 'img-rounded')
-%h1.inlined= "#{t('token.posts_in_topic')} #{@topic.name}"
+.title_with_margin
+  .inlined= image_tag((@topic.image.file.thumbnail.url rescue ImageUploader::default_url), height: '100', class: 'img-rounded')
+  %h1.inlined= "#{t('token.posts_in_topic')} #{@topic.name}"
 
-.col-xs-12
+.row
   = render @posts
 
 .col-xs-12

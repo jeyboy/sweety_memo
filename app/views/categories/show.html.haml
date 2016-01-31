@@ -1,6 +1,7 @@
-%h1= "#{t('token.topics_in_category')} #{@category.name}"
+.title_with_margin
+  %h1= "#{t('token.topics_in_category')} #{@category.name}"
 
-.col-xs-12
+.row
   = render @topics
 
 .col-xs-12
