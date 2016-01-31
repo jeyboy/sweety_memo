@@ -1,5 +1,6 @@
 .title_with_margin
-  %h1= t('token.gallery_items')
+  .inlined= image_tag((@category.image.file.thumbnail.url rescue ImageUploader::default_url), height: '100', class: 'img-rounded')
+  %h1.inlined= t('token.gallery_items')
 
 .row
   = render @gallery_items
