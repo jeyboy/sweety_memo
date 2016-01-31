@@ -92,7 +92,9 @@ wheater_proc = ->
 $ ->
   init_weather_data()
 
-  $(window).on 'resize', fill_panel # need to optimize rebuild of panel on resize
+  $(window).on 'resize', ->
+    fill_panel() # need to optimize rebuild of panel on resize
+    init_theme(window.wheater[0])
 
   $('body').on 'click', '.weather_panel', ->
     $that = $(@)
