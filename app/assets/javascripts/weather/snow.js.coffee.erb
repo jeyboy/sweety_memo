@@ -6,15 +6,9 @@ window.flakes = new Array(
     "<%= asset_path('weather/flakes/flake5.gif')%>"
 )
 
-window.amp = new Array();
-window.x_pos = new Array();
-window.y_pos = new Array();
-window.stx = new Array();
-window.sty = new Array();
-window.deltax = new Array();
-window.obj = new Array();
-
+window.flakes_obj = new Array();
 window.show_started = false
+
 
 window.flake = ->
   doc = document.documentElement;
@@ -23,44 +17,50 @@ window.flake = ->
   uwidth = window.innerWidth
   uheight = window.innerHeight
 
-  for i in [obj.length-1..0]
-    y_pos[i] += sty[i]
-    if y_pos[i] < top || y_pos[i] > top + uheight - 55 || x_pos[i] < left || x_pos[i] > left + uwidth
+  for i in [flakes_obj.length-1..0]
+    flake_obj = flakes_obj[i]
+    flake_obj.y_pos += flake_obj.sty
+    if flake_obj.y_pos < top || flake_obj.y_pos > top + uheight - 55 || flake_obj.x_pos < left || flake_obj.x_pos > left + uwidth
       if (window.show_started)
-        x_pos[i] = Math.random() * (left + uwidth - amp[i])
-        y_pos[i] = top
+        flake_obj.x_pos = Math.random() * (left + uwidth - flake_obj.amp)
+        flake_obj.y_pos = top
       else
-        document.body.removeChild(obj.splice(i, 1)[0]);
+        document.body.removeChild(flakes_obj.splice(i, 1)[0].flake);
         continue
 
-    deltax[i] += stx[i]
-    obj[i].style.top = y_pos[i] + 'px'
-    obj[i].style.left = x_pos[i] + amp[i] * Math.sin(deltax[i]) + 'px'
+    flake_obj.deltax += flake_obj.stx
+    flake_obj.flake.style.top = flake_obj.y_pos + 'px'
+    flake_obj.flake.style.left = flake_obj.x_pos + flake_obj.amp * Math.sin(flake_obj.deltax) + 'px'
 
-  if (obj.length > 0)
-    setTimeout 'flake()', 100
+  if (flakes_obj.length > 0)
+    setTimeout 'flake()', 50
 
 
 window.init_snow = (amount = window.innerWidth * window.innerHeight / 10000) ->
   amount = Math.max(10, amount)
-  while(obj.length > amount)
+  while(flakes_obj.length > amount)
+    document.body.removeChild(obj.pop().flake);
 
-    document.body.removeChild(obj.pop());
+  while(flakes_obj.length < amount)
+    i = flakes_obj.length
 
-  while(obj.length < amount)
-    i = obj.length
-    amp[i] = Math.random() * 19
-    x_pos[i] = Math.random() * (window.innerWidth - amp[i])
-    y_pos[i] = Math.random() * window.innerHeight
-    stx[i] = 0.03 + Math.random() * 0.25
-    sty[i] = 3 + Math.random()
-    deltax[i] = 0
     new_flake = document.createElement('img')
     new_flake.setAttribute('id', "sn#{i}")
     new_flake.setAttribute('style', "position:absolute; z-index: -1; visibility:visible; top:-50px; left:-50px;")
     new_flake.setAttribute('src', flakes[Math.floor(Math.random() * flakes.length)])
     document.body.appendChild(new_flake);
-    obj[i] = new_flake
+
+    amp = Math.random() * 19
+    flakes_obj[i] = {
+        flake: new_flake
+        amp: amp
+        x_pos: Math.random() * (window.innerWidth - amp)
+        y_pos: Math.random() * window.innerHeight
+        stx: 0.03 + Math.random() * 0.25
+        sty: 3 + Math.random()
+        deltax: 0
+    }
+
 
 window.snowfall = (amount) ->
   init_snow(amount)
