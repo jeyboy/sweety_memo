@@ -9,9 +9,12 @@
     = drop_down t('token.posts') do
       = menu_item t('panel.menu.index'), panel_posts_path, class: 'bg-info'
       = menu_item t('panel.menu.new'), new_panel_post_path, class: 'bg-success'
-    = drop_down t('token.gallery_items') do
-      = menu_item t('panel.menu.index'), panel_gallery_items_path, class: 'bg-info'
-      = menu_item t('panel.menu.new2'), new_panel_gallery_item_path, class: 'bg-success'
+    = drop_down t('token.gallery') do
+      = menu_item t('panel.menu.gallery_topics_index'), panel_gallery_topics_path, class: 'bg-info'
+      = menu_item t('panel.menu.gallery_topics_new'), new_panel_gallery_topic_path, class: 'bg-success'
+
+      = menu_item t('panel.menu.gallery_items_index'), panel_gallery_items_path, class: 'bg-info'
+      = menu_item t('panel.menu.gallery_items_new'), new_panel_gallery_item_path, class: 'bg-success'
     = drop_down t('token.videos') do
       = menu_item t('panel.menu.index'), panel_videos_path, class: 'bg-info'
       = menu_item t('panel.menu.new3'), new_panel_video_path, class: 'bg-success'

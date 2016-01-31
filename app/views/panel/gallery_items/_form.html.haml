@@ -6,10 +6,15 @@
       = render 'panel/shared/form_name_and_disabled_part', f: f
 
       .form-group
-        = f.label t('panel.views.description')
+        = f.label t('token.gallery_topic')
+        = link_to t('token.create_gallery_topic'), [:new, :panel, :gallery_topic], class: 'btn btn-success'
         %fieldset
-          = f.text_area :description, rows: 8, class: 'tinymce'
-          = tinymce
+          = f.collection_select :gallery_topic_id, GalleryTopic.all, :id, :name, include_blank: t('token.without_topic')
+
+      .form-group
+        = f.label t('panel.views.description')
+        %fieldset.clearfix
+          = f.text_area :description, rows: 8, class: 'editor'
 
       = render 'panel/shared/form_file_part', f: f
 

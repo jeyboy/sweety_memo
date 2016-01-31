@@ -1,0 +1,19 @@
+.row
+  .col-md-12.text-center
+    %h1.inlined
+      = "#{t('token.gallery_topic')}:"
+      Unclassified
+
+  = link_to t('token.add_gallery_item_linked'), new_panel_gallery_item_path, class: 'btn btn-success'
+
+- if @gallery_items.present?
+  %h4= t('token.gallery_items_in_gallery_topic')
+  = paginate @gallery_items, theme: 'twitter-bootstrap-3'
+
+  %table.table.table-striped
+    = render partial: 'panel/gallery_items/gallery_item', collection: @gallery_items
+
+  = paginate @gallery_items, theme: 'twitter-bootstrap-3'
+- else
+  .text-center
+    %h1= t('token.no_gallery_items')

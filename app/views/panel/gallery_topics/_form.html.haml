@@ -1,0 +1,9 @@
+.row
+  .col-xs-12
+    = form_for(@gallery_topic, url: [:panel, @gallery_topic], html: {class: 'blockable'}) do |f|
+      = render 'shared/form_errors', object: f.object
+
+      = render 'panel/shared/form_name_and_disabled_part', f: f
+
+      .actions
+        = f.button t('panel.views.proceed'), class: 'btn btn-success'

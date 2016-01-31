@@ -8,7 +8,7 @@ class Panel::GalleryItemsController < Panel::BaseController
   def show; end
 
   def new
-    @gallery_item = GalleryItem.new
+    @gallery_item = GalleryItem.new(gallery_topic_id: params[:gallery_topic_id])
   end
 
   def edit; end

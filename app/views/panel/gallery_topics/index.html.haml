@@ -1,0 +1,15 @@
+.clearfix
+  %h1.inlined= t('token.gallery_topic_list')
+  .inlined= link_to t('token.add_gallery_topic'), [:new, :panel, :gallery_topic], class: 'btn btn-success'
+
+= paginate @gallery_topics, theme: 'twitter-bootstrap-3'
+
+%table.table.table-striped
+  %tr
+    %td{colspan: 4}
+      %b= link_to t('gallery_items_without_topic'), unclassified_gallery_items_panel_gallery_topics_path
+
+  = render partial: 'panel/gallery_topics/gallery_topic', collection: @gallery_topics
+
+= paginate @gallery_topics, theme: 'twitter-bootstrap-3'
+
