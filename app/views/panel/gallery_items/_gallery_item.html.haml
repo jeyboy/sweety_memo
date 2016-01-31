@@ -1,5 +1,10 @@
 %tr
   %td
+    - if gallery_item.gallery_topic
+      = link_to gallery_item.gallery_topic.name, [:panel, gallery_item.gallery_topic]
+    - else
+      = t('token.without_topic')
+  %td
     - if gallery_item.image
       = image_tag gallery_item.image.file.thumbnail.url, height: 80
   %td

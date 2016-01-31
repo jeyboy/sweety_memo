@@ -9,7 +9,9 @@ class Panel::GalleryTopicsController < Panel::BaseController
     @gallery_topics = paginate(GalleryTopic)
   end
 
-  def show; end
+  def show
+    @gallery_items = paginate(@gallery_topic.gallery_items)
+  end
 
   def new
     @gallery_topic = GalleryTopic.new

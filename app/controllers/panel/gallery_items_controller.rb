@@ -49,6 +49,6 @@ class Panel::GalleryItemsController < Panel::BaseController
     end
 
     def gallery_item_params
-      params.require(:gallery_item).permit(:id, :name, :description, :disabled, image_attributes: [:id, :file, :file_cache, :imageable_type, :imageable_id])
+      params.require(:gallery_item).permit(:id, :name, :gallery_topic_id, :description, :disabled, image_attributes: [:id, :file, :file_cache, :imageable_type, :imageable_id])
     end
 end
