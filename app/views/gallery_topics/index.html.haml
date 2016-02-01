@@ -1,0 +1,7 @@
+%h1= t('token.gallery_topics')
+
+.col-xs-12
+  = render @gallery_topics
+
+.col-xs-12
+  = paginate @gallery_topics, theme: 'twitter-bootstrap-3'

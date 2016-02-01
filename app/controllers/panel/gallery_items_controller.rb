@@ -38,7 +38,7 @@ class Panel::GalleryItemsController < Panel::BaseController
   def destroy
     @gallery_item.destroy
     respond_to do |format|
-      format.html { redirect_to [:panel, :gallery_items], notice: 'Gallery item was successfully destroyed.' }
+      format.html { redirect_to [:panel, :gallery_topics], notice: 'Gallery item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

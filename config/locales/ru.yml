@@ -57,6 +57,7 @@ ru:
     gallery_items_without_topic: 'Элементы галереи без темы'
     without_topic: 'Без темы'
 
+    gallery_topics: 'Темы галереи'
     new_gallery_topic: 'Новая тема для галереи'
     gallery_topic: 'Тема для галереи'
     add_gallery_topic: 'Добавить тему для галереи'
@@ -115,6 +116,7 @@ ru:
 
   client:
     menu:
+      gallery_unclassified: 'Без темы'
       gallery: 'Моя галерея'
       email: 'Емейл'
       pass: 'Пароль'

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resource :home, controller: 'home'
-  resources :gallery_topics, only: [:index]
+  resources :gallery_topics, only: [:index, :show]
   resources :posts, only: [:index, :show]
   resources :topics, only: [:index, :show]
   resources :categories, only: [:index, :show]

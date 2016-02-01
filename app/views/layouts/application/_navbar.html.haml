@@ -32,8 +32,13 @@
               - if category.topics.count > 5
                 = menu_item '...', category_path(category)
 
-        - if GalleryItem.enabled.present?
-          = menu_item t('client.menu.gallery'), gallery_items_path
+        - if GalleryTopic.enabled.present?
+          = drop_down t('client.menu.gallery') do
+            = menu_item t('client.menu.gallery_unclassified'), gallery_topic_path(id: 0)
+            - GalleryTopic.enabled.first(4).each do |topic|
+              = menu_item topic.name, gallery_topic_path(topic)
+            - if GalleryTopic.enabled.count > 4
+              = menu_item '...', gallery_topics_path
 
       = menu_group pull: :right do
         %li.visible-md.visible-lg.visible-sm
