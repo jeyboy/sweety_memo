@@ -19,7 +19,7 @@ ru:
     category_list: 'Список категорий'
     topics_in_category: 'Список тем, принадлежащих к категории:'
     editing_category: 'Редактирование категории'
-    no_categories: 'Здесь покамисть нет категорий'
+    no_categories: 'Здесь пока нет категорий'
 
 
     topic: 'Тема'
@@ -29,10 +29,10 @@ ru:
     create_topic: 'Создать новую тему'
     add_topic: 'Добавить тему'
     add_topic_linked: 'Добавить тему к категории'
-    no_topics: 'Здесь покамисть нет тем'
+    no_topics: 'Здесь пока нет тем'
     posts_in_topic: 'Список постов, принадлежащих к теме:'
     editing_topic: 'Редактирование темы'
-    no_topics: 'Здесь покамисть нет тем'
+    no_topics: 'Здесь пока нет тем'
 
 
     post: 'Запись'
@@ -42,7 +42,7 @@ ru:
     add_post: 'Добавить запись'
     add_post_linked: 'Добавить запись к теме'
     editing_post: 'Редактирование записи'
-    no_posts: 'Здесь покамисть нет записей'
+    no_posts: 'Здесь пока нет записей'
 
 
     gallery_item: 'Элемент галереи'
@@ -53,7 +53,7 @@ ru:
     editing_gallery_item: 'Редактирование элемента галереи'
     create_gallery_item: 'Создать новый елемент галереи'
     genre_item_list: 'Список элементов галереи'
-    no_gallery_items: 'Здесь покамисть нет элементов галереи'
+    no_gallery_items: 'Здесь пока нет элементов галереи'
     gallery_items_without_topic: 'Элементы галереи без раздела'
     without_topic: 'Без темы'
 
@@ -72,7 +72,7 @@ ru:
     new_video: 'Новое видео'
     videos_list: 'Список видео'
     editing_video: 'Редактирование записи с видео'
-    no_videos: 'Здесь покамисть нет видео элементов'
+    no_videos: 'Здесь пока нет видео'
     add_video_linked: 'Добавить видео к теме'
 
   panel:
