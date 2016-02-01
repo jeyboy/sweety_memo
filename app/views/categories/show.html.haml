@@ -1,6 +1,4 @@
-.title_with_margin
-  .inlined= image_tag((@category.image.file.thumbnail.url rescue ImageUploader::default_url), height: '100', class: 'img-rounded')
-  %h1.inlined= "#{t('token.topics_in_category')} #{@category.name}"
+= render 'shared/title', obj: @category, text: "#{t('token.topics_in_category')} #{@category.name}"
 
 .row
   = render @topics

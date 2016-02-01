@@ -2,4 +2,4 @@
   .item{title: gallery_item.name, data: {toggle: 'popover', trigger: 'hover', content: gallery_item.description}}
     %h3= gallery_item.name
     = link_to '#', class: 'img_clc', data: {url: (gallery_item.image.file.url rescue nil)} do
-      %img.async_img{data: {src: (gallery_item.image.file.standard.url rescue ImageUploader::default_url)}}
+      = async_image(gallery_item)

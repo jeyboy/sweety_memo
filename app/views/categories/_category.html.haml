@@ -3,4 +3,4 @@
   .item.fixed_height
     = link_to category_path(category) do
       %h3= category.name
-      %img.img-rounded.async_img{data: {src: (category.image.file.standard.url rescue ImageUploader::default_url)}}
+      = async_image(category)

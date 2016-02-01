@@ -6,6 +6,7 @@
 
 .title_with_margin {
   margin: 15px 0 0 0;
+  clear: both;
 
   h1 {
     padding: 10px;
@@ -69,7 +70,7 @@
   }
 }
 
-.item, h1, body .navbar {
+.item, .title_with_margin, body .navbar {
   border: 1px #e4e4e4 solid;
   border-radius: 8px;
   box-shadow: 0 0 6px #ccc;
