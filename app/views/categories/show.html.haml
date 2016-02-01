@@ -1,4 +1,4 @@
-= render 'shared/title', obj: @category, text: "#{t('token.topics_in_category')} #{@category.name}"
+= render 'shared/title', obj: @category, text: @category.name
 
 .row
   = render @topics

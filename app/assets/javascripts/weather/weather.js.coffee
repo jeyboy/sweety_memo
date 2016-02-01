@@ -68,7 +68,7 @@ fill_panel = ->
     if ((space -= item_max_height) > 0)
       $block.append($elem)
 
-      offset = Math.min(offset, $elem.find('img').position().left + 6)
+      offset = Math.min(offset, $elem.find('img').position().left + 10)
 
     else break
 
