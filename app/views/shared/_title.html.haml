@@ -1,4 +1,8 @@
 .title_with_margin
-  %h1
-    = image(obj)
-    = text
+  .visible-md.visible-lg
+    .image= image(obj)
+    %h1= text
+  .visible-sm.visible-xs
+    %h1
+      = image(obj)
+      = text
