@@ -49,22 +49,22 @@ ru:
     gallery_items: 'Элементы галереи'
     new_gallery_item: 'Новый элемент галереи'
     add_gallery_item: 'Добавить элемент галереи'
-    add_gallery_item_linked: 'Добавить елемент галереи к теме'
+    add_gallery_item_linked: 'Добавить елемент галереи к разделу'
     editing_gallery_item: 'Редактирование элемента галереи'
     create_gallery_item: 'Создать новый елемент галереи'
     genre_item_list: 'Список элементов галереи'
     no_gallery_items: 'Здесь покамисть нет элементов галереи'
-    gallery_items_without_topic: 'Элементы галереи без темы'
+    gallery_items_without_topic: 'Элементы галереи без раздела'
     without_topic: 'Без темы'
 
-    gallery_topics: 'Темы галереи'
-    new_gallery_topic: 'Новая тема для галереи'
-    gallery_topic: 'Тема для галереи'
-    add_gallery_topic: 'Добавить тему для галереи'
-    create_gallery_topic: 'Создать новую тему для галереи'
-    editing_gallery_topic: 'Редактирование темы галереи'
-    gallery_topic_list: 'Список тем галереи'
-    gallery_items_in_gallery_topic: 'Список елементов, принадлежащих к теме'
+    gallery_topics: 'Разделы галереи'
+    new_gallery_topic: 'Новый раздел галереи'
+    gallery_topic: 'Раздел галереи'
+    add_gallery_topic: 'Добавить раздел галереи'
+    create_gallery_topic: 'Создать новый раздел галереи'
+    editing_gallery_topic: 'Редактирование раздела галереи'
+    gallery_topic_list: 'Список разделов галереи'
+    gallery_items_in_gallery_topic: 'Список елементов, принадлежащих к разделу'
 
     video: 'Видео элемент'
     videos: 'Видео элементы'
@@ -82,12 +82,6 @@ ru:
       new2: 'Создать новый'
       new3: 'Создать новое'
       close: 'Закрыть'
-      gallery_topics_index: 'Список тем галереи'
-      gallery_topics_new: 'Создать новую тему для галереи'
-      gallery_items_index: 'Список элементов для галереи'
-      gallery_items_new: 'Создать новый елемент для галереи'
-
-
 
     views:
       error:
