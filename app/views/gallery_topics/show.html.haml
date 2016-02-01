@@ -1,0 +1,9 @@
+.title_with_margin
+  .inlined= image_tag((@gallery_topic.image.file.thumbnail.url rescue ImageUploader::default_url), height: '100', class: 'img-rounded')
+  %h1.inlined= @gallery_topic ? "#{t('token.gallery_items_in_gallery_topic')}: #{@gallery_topic.name}" : t('token.gallery_items')
+
+.row
+  = render @gallery_items
+
+.col-xs-12
+  = paginate @gallery_items, theme: 'twitter-bootstrap-3'
