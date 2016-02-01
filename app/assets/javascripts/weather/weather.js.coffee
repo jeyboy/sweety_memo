@@ -47,7 +47,7 @@ fill_panel = ->
   $block = $('.weather_panel').html('')
   space = window.innerHeight - 15 - $('.navbar-fixed-top').outerHeight()
   item_max_height = 50
-  offset = 0
+  offset = 99999
 
   for block in window.wheater#[..window.weather_limit]
     date = new Date(block.time * 1000);
@@ -58,7 +58,7 @@ fill_panel = ->
           <div>#{date.getHours()}:00 #{date.getDate()}.#{date.getFullYear()} - #{block.description}</div>
           <div>Влажность: #{block.humidity}% Давление: #{block.pressure}mm Облачность: #{block.clouds}%</div>
         </div>
-        <div style='float: right'>
+        <div style='float: right; padding-left: 8px;'>
           <span class='degrees'>#{Math.round(block.temperature)}&deg;</span>
           <img src="http://openweathermap.org/img/w/#{block.icon}.png"></img>
         </div>
@@ -68,7 +68,7 @@ fill_panel = ->
     if ((space -= item_max_height) > 0)
       $block.append($elem)
 
-      offset = Math.max(offset, $elem.find('img').position().left)
+      offset = Math.min(offset, $elem.find('img').position().left + 6)
 
     else break
 
