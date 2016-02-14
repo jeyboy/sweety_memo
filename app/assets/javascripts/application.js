@@ -6,7 +6,7 @@
 //= require weather/index
 //= require_self
 
-window.last_location = undefined;
+window.last_location = location.pathname;
 
 $('document').ready(function() {
     $('body').on('click', 'a:not(.direct)', function() {
@@ -32,6 +32,9 @@ $('document').ready(function() {
                 method: $this.attr('data-method') || 'get',
                 success: function (response) {
                     window.last_location = url;
+                    history.replaceState(null, document.title, url);
+                    history.pushState(null, document.title, window.last_location);
+
                     $content.html(response.content);
                     async_image_loading();
                 },
