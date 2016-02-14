@@ -26,4 +26,5 @@ Rails.application.routes.draw do
   post 'search', to: 'home#search', as: :search
 
   root 'home#show'
+  match '*path' => redirect('/'), via: [:get, :post]
 end
