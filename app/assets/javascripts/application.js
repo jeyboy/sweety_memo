@@ -20,6 +20,7 @@ window.update_page = function(url) {
         url: url,
         method: $this.attr('data-method') || 'get',
         success: function (response) {
+            history.replaceState(null, document.title, url);
             history.pushState(null, document.title, window.last_location);
             window.last_location = url;
 
