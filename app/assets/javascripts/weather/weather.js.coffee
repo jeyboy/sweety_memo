@@ -47,7 +47,7 @@ fill_panel = ->
   $block = $('.weather_panel').html('')
   space = window.innerHeight - 15 - $('.navbar-fixed-top').outerHeight()
   item_max_height = 50
-  offset = 0
+  offset = 999999
 
   for block in window.wheater#[..window.weather_limit]
     date = new Date(block.time * 1000);
@@ -68,11 +68,11 @@ fill_panel = ->
     if ((space -= item_max_height) > 0)
       $block.append($elem)
 
-      offset = Math.max(offset, $elem.find('img').position().left)
+      offset = Math.min(offset, $elem.find('img').position().left)
 
     else break
 
-  $block.attr('data-offset', -offset)
+  $block.attr('data-offset', -(offset + 12))
   if ($block.position().left != 0)
     $block.css({"left": $block.data('offset') + 'px'});
 
@@ -82,7 +82,7 @@ init_theme = (block) ->
 # rainfall()
 
 
-wheater_proc = ->
+window.wheater_proc = ->
   if (window.wheater.length < window.weather_limit)
     init_weather_data()
   else
