@@ -8,4 +8,7 @@ jQuery ->
 
   $(window).on 'resize', recalc_padding
 
-$(window).load(-> recalc_padding());
+$(window)
+  .load(recalc_padding)
+  .ready(recalc_padding)
+
