@@ -4,6 +4,6 @@ module ApplicationHelper
   end
 
   def async_image(obj)
-    image_tag('#', class: 'img-rounded async_img', data: {src: (obj.image.file.standard.url rescue ImageUploader::default_url)}).html_safe
+    image_tag('loading.gif', class: 'img-rounded async_img', data: {src: (obj.image.file.standard.url rescue ImageUploader::default_url)}).html_safe
   end
 end

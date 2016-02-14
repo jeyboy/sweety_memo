@@ -1,4 +1,4 @@
-jQuery ->
+window.async_image_loading = ->
   regexp = /\d+/
   $.each($('.async_img'), (i, img) ->
     $img = $(img)
@@ -16,3 +16,6 @@ jQuery ->
     )
     $downloadingImage.attr('src', $img.data('src'))
   )
+
+jQuery ->
+  async_image_loading()

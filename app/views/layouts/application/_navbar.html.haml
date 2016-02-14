@@ -42,7 +42,7 @@
 
       = menu_group pull: :right do
         %li.visible-md.visible-lg.visible-sm
-          = form_for :search, url: search_path, html: {class: 'navbar-form', role: 'search'} do |f|
+          = form_for :search, url: search_path, html: {class: 'navbar-form', role: 'search', remote: true} do |f|
             .input-group
               = f.text_field :term, class: 'form-control', placeholder: t('client.menu.search')
               .input-group-btn

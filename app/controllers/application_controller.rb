@@ -18,6 +18,7 @@ protected
     respond_to do |mime|
       mime.html
       mime.json { json_response }
+      mime.js
     end
   end
 
