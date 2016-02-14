@@ -6,22 +6,24 @@
 //= require weather/index
 //= require_self
 
-window.update_page = function(url) {
+window.update_page = function(url, update_history) {
     $content = $('#main_content');
     img_url = $content.attr('data-loading-img');
     $content.html("<img src='" + img_url + "' height='100px' style='display: block; margin: auto;' />");
 
     if (/\/$/.test(url))
-        url += '?format=json';
+        proc_url = url + '?format=json';
     else
-        url += '.json';
+        proc_url = url + '.json';
 
     $.ajax({
-        url: url,
+        url: proc_url,
         method: $this.attr('data-method') || 'get',
         success: function (response) {
-            history.replaceState(null, document.title, url);
-            history.pushState(null, document.title, window.last_location);
+            if (update_history) {
+                history.replaceState(null, document.title, window.last_location);
+                history.pushState(null, document.title, url);
+            }
             window.last_location = url;
 
             $content.html(response.content);
@@ -37,7 +39,7 @@ window.last_location = location.pathname;
 
 window.onpopstate = function(event) {
     alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
-    update_page(document.location, true);
+    update_page(document.location, false);
 };
 
 $('document').ready(function() {
@@ -50,7 +52,7 @@ $('document').ready(function() {
             if ($(".navbar-toggle:visible").length > 0)
                 $(".navbar-collapse.in").collapse('hide');
 
-            update_page(url);
+            update_page(url, true);
 
             return false;
         }
