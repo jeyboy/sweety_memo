@@ -1,6 +1,7 @@
 class GalleryTopicsController < ApplicationController
   def index
     @gallery_topics = paginate(GalleryTopic.enabled)
+    respond
   end
 
   def show
@@ -8,8 +9,11 @@ class GalleryTopicsController < ApplicationController
     if id == 0
       @gallery_items = paginate(GalleryItem.global.enabled)
     else
-      (redirect_to(:back, alert: 'Object is not existed') and return) unless (@gallery_topic = GalleryTopic.enabled.find_by(id: id))
+      @gallery_topic = find_obj(GalleryTopic.enabled, id)
+      (respond_with_error and return) unless @gallery_topic
       @gallery_items = paginate(@gallery_topic.gallery_items.enabled)
     end
+
+    respond
   end
 end

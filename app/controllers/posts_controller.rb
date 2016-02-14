@@ -3,12 +3,15 @@ class PostsController < ApplicationController
 
   def index
     @posts = paginate(Post)
+    respond
   end
 
-  def show; end
+  def show
+    respond
+  end
 
   private
     def set_post
-      redirect_to(:back, alert: 'Object is not existed') unless (@post = Post.enabled.find_by(id: params[:id].to_i))
+      respond_with_error unless (@post = find_obj(Post.enabled, params[:id]))
     end
 end

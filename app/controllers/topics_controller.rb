@@ -3,14 +3,16 @@ class TopicsController < ApplicationController
 
   def index
     @topics = paginate(Topic.enabled)
+    respond
   end
 
   def show
     @posts = paginate(@topic.posts.enabled)
+    respond
   end
 
   private
     def set_topic
-      redirect_to(:back, alert: 'Object is not existed') unless (@topic = Topic.enabled.find_by(id: params[:id].to_i))
+      respond_with_error unless (@topic = find_obj(Topic.enabled, params[:id]))
     end
 end
