@@ -22,8 +22,13 @@ $('document').ready(function() {
             img_url = $content.attr('data-loading-img');
             $content.html("<img src='" + img_url + "' height='100px' style='display: block; margin: auto;' />");
 
+            if (/\/$/.test(url))
+                url += '?format=json';
+            else
+                url += '.json';
+
             $.ajax({
-                url: url + '.json',
+                url: url,
                 method: $this.attr('data-method') || 'get',
                 success: function (response) {
                     window.last_location = url;
