@@ -72,7 +72,7 @@ fill_panel = ->
 
     else break
 
-  $block.attr('data-offset', -(offset + 5))
+  $block.attr('data-offset', -(offset + 15))
   if ($block.position().left != 0)
     $block.css({"left": $block.data('offset') + 'px'});
 

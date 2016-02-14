@@ -11,7 +11,7 @@ window.last_location = location.pathname;
 $('document').ready(function() {
     $('body').on('click', 'a:not(.direct)', function() {
         $this = $(this);
-        url = $this.attr('href');
+        def_url = url = $this.attr('href');
 
         if (url != '#' && url != window.last_location) {
             $this.closest('.dropdown.open').removeClass('open');
@@ -31,9 +31,9 @@ $('document').ready(function() {
                 url: url,
                 method: $this.attr('data-method') || 'get',
                 success: function (response) {
-                    window.last_location = url;
-                    history.replaceState(null, document.title, url);
+                    history.replaceState(null, document.title, def_url);
                     history.pushState(null, document.title, window.last_location);
+                    window.last_location = def_url;
 
                     $content.html(response.content);
                     async_image_loading();
