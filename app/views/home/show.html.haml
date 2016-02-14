@@ -8,3 +8,9 @@
 
 .row
   = render Category.enabled
+
+  .col-xs-12.col-sm-6.col-md-4.col-lg-3.text-center
+    .item.fixed_height
+      = link_to gallery_topics_path do
+        %h3= t('client.menu.gallery')
+        = async_image(GalleryTopic.enabled.first)
