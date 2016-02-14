@@ -16,7 +16,7 @@ $('document').ready(function() {
         if (url != '#' && url != window.last_location) {
             $this.closest('.dropdown.open').removeClass('open');
             if ($(".navbar-toggle:visible").length > 0)
-                $(".navbar-collapse").collapse('hide');
+                $(".navbar-collapse.in").collapse('hide');
 
             $content = $('#main_content');
             img_url = $content.attr('data-loading-img');
