@@ -3,6 +3,11 @@
     = form_for(@category, url: [:panel, @category], html: {class: 'blockable', multypart: true}) do |f|
       = render 'shared/form_errors', object: f.object
 
+      .form-group
+        = f.label t('panel.views.order_pos')
+        %fieldset
+          = f.text_field :order_pos, class: 'integer'
+
       = render 'panel/shared/form_name_and_disabled_part', f: f
 
       = render 'panel/shared/form_file_part', f: f

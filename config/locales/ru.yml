@@ -93,6 +93,7 @@ ru:
           err_sentence_last: ' ваше творение от создания'
 
       name: 'Название'
+      order_pos: 'Позиция при сортировке'
       body: 'Содержимое'
       youtube_link: 'Ссылка или идентификатор видео на Youtube'
       description: 'Описание'

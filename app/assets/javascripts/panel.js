@@ -4,9 +4,12 @@
 //= require_directory ./panel
 //= require_directory ./shared
 //= require wisiwygjs/standalone.min
+//= require jquery.mask.min
 //= require_self
 
 $('document').ready(function() {
+    $('.integer').mask("-9999999999", {translation:  {'-': {pattern: /[-0-9]/, optional: true}}});
+
     $('.editor').each( function(index, element)
     {
         $(element).wysiwyg({
