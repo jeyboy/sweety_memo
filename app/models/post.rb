@@ -89,10 +89,11 @@ class Post < ActiveRecord::Base
     end
 
     def search(term)
+      term.downcase!
       {
-        I18n.t('token.categories') =>  Category.where('name LIKE ?', "%#{term}%"),
-        I18n.t('token.topics') => Topic.where('name LIKE ?', "%#{term}%"),
-        I18n.t('token.posts') => Post.where('name LIKE :term OR body LIKE :term', term: "%#{term}%")
+        I18n.t('token.categories') =>  Category.where('LOWER(name) LIKE ?', "%#{term}%"),
+        I18n.t('token.topics') => Topic.where('LOWER(name) LIKE ?', "%#{term}%"),
+        I18n.t('token.posts') => Post.where('LOWER(name) LIKE :term OR LOWER(body) LIKE :term', term: "%#{term}%")
       }
     end
   end
