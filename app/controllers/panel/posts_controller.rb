@@ -27,7 +27,9 @@ class Panel::PostsController < Panel::BaseController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to get_object_path, notice: "#{@post.readable_content_type} was successfully created." }
+        format.html {
+          redirect_to get_object_path, notice: t('panel.controllers.created', obj: 'Объект') # @post.readable_content_type
+        }
       else
         format.html { render "panel/#{@post.content_type_str}/new" }
       end
@@ -37,7 +39,9 @@ class Panel::PostsController < Panel::BaseController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to get_object_path, notice: "#{@post.readable_content_type} was successfully updated." }
+        format.html {
+          redirect_to get_object_path, notice: t('panel.controllers.updated', obj: 'Объект') # @post.readable_content_type
+        }
       else
         format.html { render "panel/#{@post.content_type_str}/edit" }
       end
@@ -48,7 +52,9 @@ class Panel::PostsController < Panel::BaseController
     redirect_path = [:panel, @post.content_type_str.to_sym]
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to redirect_path, notice: "#{@post.readable_content_type} was successfully destroyed." }
+      format.html {
+        redirect_to redirect_path, notice: t('panel.controllers.deleted', obj: 'Объект') # @post.readable_content_type
+      }
       format.json { head :no_content }
     end
   end
@@ -59,7 +65,8 @@ class Panel::PostsController < Panel::BaseController
     end
 
     def set_post
-      redirect_to(:back, alert: "#{@post.readable_content_type} is not existed") unless (@post = Post.find_by(id: params[:id].to_i))
+      redirect_to(:back, alert: t('panel.controllers.not_found', obj: 'Объект')) unless
+          (@post = Post.find_by(id: params[:id].to_i))
     end
 
     def post_params

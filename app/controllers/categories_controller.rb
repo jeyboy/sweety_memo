@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
 
   private
     def set_category
-      redirect_to(:back, alert: I18n.t('panel.controllers.not_found', obj: 'Объект')) unless
+      redirect_to(:back, alert: t('panel.controllers.not_found', obj: 'Объект')) unless
           (@category = Category.enabled.find_by(id: params[:id].to_i))
     end
 end

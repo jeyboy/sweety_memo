@@ -78,6 +78,9 @@ ru:
   panel:
     controllers:
       not_found: '%{obj} не найден'
+      created: '%{obj} успешно создан'
+      updated: '%{obj} успешно изменен'
+      deleted: '%{obj} удален нафик'
 
     menu:
       index: 'Список'

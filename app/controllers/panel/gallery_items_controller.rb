@@ -18,7 +18,9 @@ class Panel::GalleryItemsController < Panel::BaseController
 
     respond_to do |format|
       if @gallery_item.save
-        format.html { redirect_to [:panel, @gallery_item], notice: 'Gallery item was successfully created.' }
+        format.html {
+          redirect_to [:panel, @gallery_item], notice: t('panel.controllers.created', obj: 'Объект')
+        }
       else
         format.html { render :new }
       end
@@ -28,7 +30,9 @@ class Panel::GalleryItemsController < Panel::BaseController
   def update
     respond_to do |format|
       if @gallery_item.update(gallery_item_params)
-        format.html { redirect_to [:panel, @gallery_item], notice: 'Gallery item was successfully updated.' }
+        format.html {
+          redirect_to [:panel, @gallery_item], notice: t('panel.controllers.updated', obj: 'Объект')
+        }
       else
         format.html { render :edit }
       end
@@ -38,14 +42,16 @@ class Panel::GalleryItemsController < Panel::BaseController
   def destroy
     @gallery_item.destroy
     respond_to do |format|
-      format.html { redirect_to [:panel, :gallery_topics], notice: 'Gallery item was successfully destroyed.' }
+      format.html {
+        redirect_to [:panel, :gallery_topics], notice: t('panel.controllers.deleted', obj: 'Объект')
+      }
       format.json { head :no_content }
     end
   end
 
   private
     def set_gallery_item
-      redirect_to(:back, alert: I18n.t('panel.controllers.not_found', obj: 'Объект')) unless
+      redirect_to(:back, alert: t('panel.controllers.not_found', obj: 'Объект')) unless
           (@gallery_item = GalleryItem.find_by(id: params[:id].to_i))
     end
 

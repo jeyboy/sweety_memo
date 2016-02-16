@@ -24,7 +24,9 @@ class Panel::GalleryTopicsController < Panel::BaseController
 
     respond_to do |format|
       if @gallery_topic.save
-        format.html { redirect_to [:panel, @gallery_topic], notice: 'Gallery topic was successfully created.' }
+        format.html {
+          redirect_to [:panel, @gallery_topic], notice: t('panel.controllers.created', obj: 'Объект')
+        }
       else
         format.html { render :new }
       end
@@ -34,7 +36,9 @@ class Panel::GalleryTopicsController < Panel::BaseController
   def update
     respond_to do |format|
       if @gallery_topic.update(gallery_topic_params)
-        format.html { redirect_to [:panel, @gallery_topic], notice: 'Gallery topic was successfully updated.' }
+        format.html {
+          redirect_to [:panel, @gallery_topic], notice: t('panel.controllers.updated', obj: 'Объект')
+        }
       else
         format.html { render :edit }
       end
@@ -44,7 +48,9 @@ class Panel::GalleryTopicsController < Panel::BaseController
   def destroy
     @gallery_topic.destroy
     respond_to do |format|
-      format.html { redirect_to [:panel, :gallery_topics], notice: 'Gallery topic was successfully destroyed.' }
+      format.html {
+        redirect_to [:panel, :gallery_topics], notice: t('panel.controllers.deleted', obj: 'Объект')
+      }
       format.json { head :no_content }
     end
   end

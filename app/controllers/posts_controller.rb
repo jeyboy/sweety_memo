@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
   private
     def set_post
-      redirect_to(:back, alert: I18n.t('panel.controllers.not_found', obj: 'Объект')) unless
+      redirect_to(:back, alert: t('panel.controllers.not_found', obj: 'Объект')) unless
           (@post = Post.enabled.find_by(id: params[:id].to_i))
     end
 end

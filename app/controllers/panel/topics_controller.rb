@@ -20,7 +20,9 @@ class Panel::TopicsController < Panel::BaseController
 
     respond_to do |format|
       if @topic.save
-        format.html { redirect_to [:panel, @topic], notice: 'Topic was successfully created.' }
+        format.html {
+          redirect_to [:panel, @topic], notice: t('panel.controllers.created', obj: 'Объект')
+        }
       else
         format.html { render 'panel/topics/new' }
       end
@@ -30,7 +32,9 @@ class Panel::TopicsController < Panel::BaseController
   def update
     respond_to do |format|
       if @topic.update(topic_params)
-        format.html { redirect_to [:panel, @topic], notice: 'Topic was successfully updated.' }
+        format.html {
+          redirect_to [:panel, @topic], notice: t('panel.controllers.updated', obj: 'Объект')
+        }
       else
         format.html { render 'panel/topics/edit' }
       end
@@ -40,7 +44,9 @@ class Panel::TopicsController < Panel::BaseController
   def destroy
     @topic.destroy
     respond_to do |format|
-      format.html { redirect_to [:panel, :topics], notice: 'Topic was successfully destroyed.' }
+      format.html {
+        redirect_to [:panel, :topics], notice: t('panel.controllers.deleted', obj: 'Объект')
+      }
       format.json { head :no_content }
     end
   end

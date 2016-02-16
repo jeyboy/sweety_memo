@@ -20,7 +20,9 @@ class Panel::CategoriesController < Panel::BaseController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to [:panel, @category], notice: 'Category was successfully created.' }
+        format.html {
+          redirect_to [:panel, @category], notice: t('panel.controllers.created', obj: 'Объект')
+        }
       else
         format.html { render 'panel/categories/new' }
       end
@@ -30,7 +32,9 @@ class Panel::CategoriesController < Panel::BaseController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to [:panel, @category], notice: 'Category was successfully updated.' }
+        format.html {
+          redirect_to [:panel, @category], notice: t('panel.controllers.updated', obj: 'Объект')
+        }
       else
         format.html { render 'panel/categories/edit' }
       end
@@ -40,14 +44,16 @@ class Panel::CategoriesController < Panel::BaseController
   def destroy
     @category.destroy
     respond_to do |format|
-      format.html { redirect_to [:panel, :categories], notice: 'Category was successfully destroyed.' }
+      format.html {
+        redirect_to [:panel, :categories], notice: t('panel.controllers.deleted', obj: 'Объект')
+      }
       format.json { head :no_content }
     end
   end
 
   private
     def set_category
-      redirect_to(:back, alert: I18n.t('panel.controllers.not_found', obj: 'Объект')) unless
+      redirect_to(:back, alert: t('panel.controllers.not_found', obj: 'Объект')) unless
           (@category = Category.find_by(id: params[:id].to_i))
     end
 
