@@ -8,7 +8,8 @@ class GalleryTopicsController < ApplicationController
     if id == 0
       @gallery_items = paginate(GalleryItem.global.enabled)
     else
-      (redirect_to(:back, alert: 'Object is not existed') and return) unless (@gallery_topic = GalleryTopic.enabled.find_by(id: id))
+      (redirect_to(:back, alert: I18n.t('panel.controllers.not_found', obj: 'Объект')) and return) unless
+          (@gallery_topic = GalleryTopic.enabled.find_by(id: id))
       @gallery_items = paginate(@gallery_topic.gallery_items.enabled)
     end
   end

@@ -45,10 +45,14 @@ class Panel::GalleryItemsController < Panel::BaseController
 
   private
     def set_gallery_item
-      redirect_to(:back, alert: 'Object is not existed') unless (@gallery_item = GalleryItem.find_by(id: params[:id].to_i))
+      redirect_to(:back, alert: I18n.t('panel.controllers.not_found', obj: 'Объект')) unless
+          (@gallery_item = GalleryItem.find_by(id: params[:id].to_i))
     end
 
     def gallery_item_params
-      params.require(:gallery_item).permit(:id, :name, :gallery_topic_id, :description, :disabled, image_attributes: [:id, :file, :file_cache, :imageable_type, :imageable_id])
+      params.require(:gallery_item).permit(
+        :id, :name, :gallery_topic_id, :description, :disabled,
+        image_attributes: [:id, :file, :file_cache, :imageable_type, :imageable_id]
+      )
     end
 end

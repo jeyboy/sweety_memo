@@ -76,6 +76,9 @@ ru:
     add_video_linked: 'Добавить видео к теме'
 
   panel:
+    controllers:
+      not_found: '%{obj} не найден'
+
     menu:
       index: 'Список'
       new: 'Создать новую'

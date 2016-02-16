@@ -11,6 +11,7 @@ class TopicsController < ApplicationController
 
   private
     def set_topic
-      redirect_to(:back, alert: 'Object is not existed') unless (@topic = Topic.enabled.find_by(id: params[:id].to_i))
+      redirect_to(:back, alert: I18n.t('panel.controllers.not_found', obj: 'Объект')) unless
+          (@topic = Topic.enabled.find_by(id: params[:id].to_i))
     end
 end

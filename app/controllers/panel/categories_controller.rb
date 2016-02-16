@@ -47,10 +47,14 @@ class Panel::CategoriesController < Panel::BaseController
 
   private
     def set_category
-      redirect_to(:back, alert: 'Object is not existed') unless (@category = Category.find_by(id: params[:id].to_i))
+      redirect_to(:back, alert: I18n.t('panel.controllers.not_found', obj: 'Объект')) unless
+          (@category = Category.find_by(id: params[:id].to_i))
     end
 
     def category_params
-      params.require(:category).permit(:id, :name, :order_pos, :disabled, image_attributes: [:id, :file, :file_cache, :imageable_type, :imageable_id])
+      params.require(:category).permit(
+        :id, :name, :order_pos, :disabled,
+        image_attributes: [:id, :file, :file_cache, :imageable_type, :imageable_id]
+      )
     end
 end

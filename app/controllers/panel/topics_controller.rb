@@ -47,10 +47,14 @@ class Panel::TopicsController < Panel::BaseController
 
   private
     def set_topic
-      redirect_to(:back, alert: 'Object is not existed') unless (@topic = Topic.find_by(id: params[:id].to_i))
+      redirect_to(:back, alert: I18n.t('panel.controllers.not_found', obj: 'Объект')) unless
+          (@topic = Topic.find_by(id: params[:id].to_i))
     end
 
     def topic_params
-      params.require(:topic).permit(:id, :name, :category_id, :disabled, image_attributes: [:id, :file, :file_cache, :imageable_type, :imageable_id])
+      params.require(:topic).permit(
+        :id, :name, :category_id, :disabled,
+        image_attributes: [:id, :file, :file_cache, :imageable_type, :imageable_id]
+      )
     end
 end
