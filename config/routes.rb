@@ -26,5 +26,6 @@ Rails.application.routes.draw do
   post 'search', to: 'home#search', as: :search
 
   root 'home#show'
-  match '*path' => redirect { |p, req| req.flash[:alert] = 'Aaargh, this path is not exist'; '/' }, via: [:get, :post]
+  # match '*path' => redirect { |p, req| req.flash[:alert] = 'Aaargh, this path is not exist'; '/' }, via: [:get, :post]
+  match '*path' => redirect('/'), via: [:get, :post]
 end
