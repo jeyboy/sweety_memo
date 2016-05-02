@@ -9,24 +9,19 @@ window.moon_obj = undefined
 current_timestamp = () -> Math.round(+new Date() / 1000)
 
 window.proc_day = (is_day)->
+  unless is_day
+    is_day = !!window.sun_obj
+
   initClientRect()
   wrapper = wrapperNode()
 
-  if is_day
-    if window.sun_obj
-      return
+  if window.sun_obj
+    wrapper.removeChild(sun_obj)
+    window.sun_obj = undefined
 
-    if window.moon_obj
-      wrapper.removeChild(moon_obj)
-      moon_obj = undefined
-
-  else
-    if window.moon_obj
-      return
-
-    if window.sun_obj
-      wrapper.removeChild(sun_obj)
-      sun_obj = undefined
+  if window.moon_obj
+    wrapper.removeChild(moon_obj)
+    window.moon_obj = undefined
 
   if is_day
     window.sun_obj = document.createElement('img')
@@ -145,6 +140,7 @@ $ ->
   $(window).on 'resize', ->
     fill_panel() # need to optimize rebuild of panel on resize
     init_theme(window.wheater[0])
+    proc_day()
 
   $('body').on 'click', '.weather_panel', ->
     $that = $(@)
