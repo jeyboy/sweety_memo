@@ -78,8 +78,19 @@ fill_panel = ->
 
 
 init_theme = (block) ->
-#  snowfall()
-  rainfall()
+  stopRainfall()
+  stopSnowfall()
+
+  amount = window.innerWidth * window.innerHeight / window.weather_def_del
+
+  if (block.rain && block.snow)
+    amount /= 2
+
+  if (block.rain)
+    rainfall(amount)
+
+  if (block.snow)
+    snowfall()
 
 
 window.wheater_proc = ->
