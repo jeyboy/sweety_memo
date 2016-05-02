@@ -83,14 +83,18 @@ init_theme = (block) ->
 
   amount = window.innerWidth * window.innerHeight / window.weather_def_del
 
-  if (block.rain && block.snow)
-    amount /= 2
+#  if (block.rain && block.snow)
+#    amount /= 2
+#
+#  if (block.rain)
+#    rainfall(amount)
+#
+#  if (block.snow)
+#    snowfall(amount)
 
-  if (block.rain)
-    rainfall(amount)
-
-  if (block.snow)
-    snowfall()
+  amount /= 2
+  rainfall(amount)
+  snowfall(amount)
 
 
 window.wheater_proc = ->

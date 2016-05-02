@@ -8,6 +8,7 @@ window.flakes = new Array(
 
 window.flakes_obj = new Array();
 window.show_started = false
+window.snow_timer_started = false
 
 
 window.flake_proc = ->
@@ -30,7 +31,10 @@ window.flake_proc = ->
     flake_obj.flake.style.left = flake_obj.x_pos + flake_obj.amp * Math.sin(flake_obj.deltax) + 'px'
 
   if (flakes_obj.length > 0)
+    window.snow_timer_started = true
     setTimeout 'flake_proc()', window.weather_clock
+  else
+    window.snow_timer_started = false
 
 
 window.init_snowfall = (amount = window.innerWidth * window.innerHeight / window.weather_def_del) ->
@@ -66,9 +70,11 @@ window.init_snowfall = (amount = window.innerWidth * window.innerHeight / window
 
 window.snowfall = (amount) ->
   init_snowfall(amount)
-  if (!window.show_started)
+  unless window.show_started
     window.show_started = true
-    flake_proc()
+
+    unless window.snow_timer_started
+      flake_proc()
 
 window.stopSnowfall = ->
     window.show_started = false

@@ -5,6 +5,7 @@ window.rain_drops = new Array(
 
 window.drops_obj = new Array();
 window.rain_started = false
+window.rain_timer_started = false
 
 
 window.rain_proc = ->
@@ -20,6 +21,7 @@ window.rain_proc = ->
         drop_obj.x_pos = Math.random() * (uleft + uwidth + 200) + 100
         drop_obj.y_pos = utop
       else
+
         wrapper.removeChild(drops_obj.splice(i, 1)[0].drop);
         continue
 
@@ -27,15 +29,18 @@ window.rain_proc = ->
     drop_obj.drop.style.left = drop_obj.x_pos + 'px'
 
   if (drops_obj.length > 0)
+    window.rain_timer_started = true
     setTimeout 'rain_proc()', window.weather_clock
+  else
+    window.rain_timer_started = false
 
 
 window.init_rainfall = (amount = window.innerWidth * window.innerHeight / window.weather_def_del) ->
   amount = Math.max(window.weather_min_objs, amount)
   wrapper = wrapperNode()
 
-  while(flakes_obj.length > amount)
-    wrapper.removeChild(drops_obj.pop().flake);
+  while(drops_obj.length > amount)
+    wrapper.removeChild(drops_obj.pop().drop);
 
   while(drops_obj.length < amount)
     i = drops_obj.length
@@ -57,9 +62,11 @@ window.init_rainfall = (amount = window.innerWidth * window.innerHeight / window
 
 window.rainfall = (amount) ->
   init_rainfall(amount)
-  if (!window.rain_started)
+  unless window.rain_started
     window.rain_started = true
-    rain_proc()
+
+    unless window.rain_timer_started
+      rain_proc()
 
 window.stopRainfall = ->
     window.rain_started = false
