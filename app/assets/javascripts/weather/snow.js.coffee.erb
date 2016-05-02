@@ -54,8 +54,6 @@ window.init_snowfall = (amount = window.innerWidth * window.innerHeight / window
     new_flake.setAttribute('src', flakes[Math.floor(Math.random() * flakes.length)])
     wrapper.appendChild(new_flake);
 
-    console.log(Math.random() * window.innerHeight, window.innerHeight)
-
     amp = Math.random() * 19
     flakes_obj[i] = {
         flake: new_flake

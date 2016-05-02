@@ -3,7 +3,43 @@ window.weather_limit = 6
 #window.sunrise = undefined
 #window.sunset = undefined
 
+window.sun_obj = undefined
+window.moon_obj = undefined
+
 current_timestamp = () -> Math.round(+new Date() / 1000)
+
+window.proc_day = (is_day)->
+  initClientRect()
+  wrapper = wrapperNode()
+
+  if is_day
+    if window.sun_obj
+      return
+
+    if window.moon_obj
+      wrapper.removeChild(moon_obj)
+      moon_obj = undefined
+
+  else
+    if window.moon_obj
+      return
+
+    if window.sun_obj
+      wrapper.removeChild(sun_obj)
+      sun_obj = undefined
+
+  if is_day
+    window.sun_obj = document.createElement('img')
+    window.sun_obj.setAttribute('style', "position:absolute; z-index: -1; visibility:visible; top:0; left:#{window.uwidth - 250}px;")
+    window.sun_obj.setAttribute('src', window.sun)
+    wrapper.appendChild(window.sun_obj)
+  else
+    window.moon_obj = document.createElement('img')
+    window.moon_obj.setAttribute('style', "position:absolute; z-index: -1; visibility:visible; top:0; left:#{window.uwidth - 250}px;")
+    window.moon_obj.setAttribute('src', window.moon)
+    wrapper.appendChild(window.moon_obj)
+
+
 
 init_weather_data = ->
 #  $.ajax
@@ -83,18 +119,16 @@ init_theme = (block) ->
 
   amount = window.innerWidth * window.innerHeight / window.weather_def_del
 
-#  if (block.rain && block.snow)
-#    amount /= 2
-#
-#  if (block.rain)
-#    rainfall(amount)
-#
-#  if (block.snow)
-#    snowfall(amount)
+  if (block.rain && block.snow)
+    amount /= 2
 
-  amount /= 2
-  rainfall(amount)
-  snowfall(amount)
+  if (block.rain)
+    rainfall(amount)
+
+  if (block.snow)
+    snowfall(amount)
+
+  proc_day(block.day)
 
 
 window.wheater_proc = ->
