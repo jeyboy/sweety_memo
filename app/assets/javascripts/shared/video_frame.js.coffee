@@ -1,6 +1,11 @@
 jQuery ->
   ((window, document) ->
 
+#    width = $(window).width();
+#    if (width < 768)
+#      return
+
+
     ###
     # Grab all iframes on the page or return
     ###
