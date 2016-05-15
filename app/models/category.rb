@@ -1,4 +1,9 @@
 class Category < ActiveRecord::Base
+  TAGS = [
+    RELATED= 0,
+    ALL_VIDEOS = 1
+  ]
+
   has_many :topics, dependent: :destroy
   has_many :posts, through: :topics
 
