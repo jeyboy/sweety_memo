@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    if @category.tag != Category::ALL_VIDEOS
+    if @category.tag == Category::ALL_VIDEOS
       @topic = @category
       @posts = paginate(Post.where(content_type: POST_VIDEO_CONTENT))
       render('topics/show') and return
